@@ -98,6 +98,7 @@ header ul li a:hover::after {
   font-size: 30px;
   padding: 20px 25px;
   text-align: center;
+  cursor: pointer;
 }
 .mobile-menu ul li a {
   color: #000;
@@ -149,6 +150,7 @@ header ul li a:hover::after {
 /* Hero section container */
 .hero-section {
   position: relative;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -288,6 +290,7 @@ section h3 {
 }
 .operation-items {
   margin-top: 50px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
