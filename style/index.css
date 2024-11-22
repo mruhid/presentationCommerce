@@ -11,7 +11,7 @@
 }
 :root {
   /* Primary colors */
-  --color-primary: #ffd700; /* Indigo */
+  --color-primary: #ffd700;
   --color-text-light: #ffffff;
   --color-text-dark: #000000;
   --header-color: rgb(253, 253, 253, 0.6);

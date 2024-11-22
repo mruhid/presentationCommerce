@@ -17,13 +17,13 @@ window.addEventListener('scroll', () => {
 
 const price = {
     quality: {
-      weak: 1,
-      medium: 2,
-      strong: 3,
+      Zəif: 1,
+      Orta: 2,
+      Güclü: 3,
     },
     language: {
-      azerbaijan: 1,
-      foreign: 2,
+      Azərbaycan: 1,
+      Xarici: 2,
     },
   };
 
@@ -39,26 +39,27 @@ const price = {
 
     // Validation to check if all fields are filled
     if (!quality || !language || !slides) {
-      resultDiv.textContent = "Please fill in all inputs.";
-      resultDiv.style.color = "red"; // Highlight the error message
-      bookNowBtn.classList.add("hidden"); // Hide the Book Now button
+      resultDiv.textContent = "Zəhmət olmasa bütün məlumatları daxil edin.";
+      resultDiv.style.color = "red"; 
+      bookNowBtn.classList.add("hidden"); 
       return;
     }
 
     const totalPrice = (parseFloat(price.quality[quality]) + parseFloat(price.language[language])) * parseInt(slides, 10);
-    resultDiv.textContent = `Price: ${totalPrice}`;
-    resultDiv.style.color = "var(--color-primary)"; // Reset the color for a valid result
+    resultDiv.textContent = `Qiymət: ${totalPrice}AZN`;
+    resultDiv.style.color = "var(--color-primary)"; 
 
     bookNowBtn.classList.remove("hidden");
   });
 
   bookNowBtn.addEventListener("click", function () {
-    const whatsappNumber = "+994516944256"; // Replace with your WhatsApp number in international format (e.g., 1234567890)
-    const message = encodeURIComponent(`Salam . Mən təqdimat sifaris etmek isteyirəm:
+    const whatsappNumber = "+994516944256"; 
+    const message = encodeURIComponent(`Salam .
+       Mən təqdimat sifaris etmek isteyirəm:
         Slide sayı: ${document.getElementById("slides").value}
         Keyfiyyət: ${document.getElementById("quality").value}
         Dil: ${document.getElementById("language").value}
-        Məbləğ: ${document.getElementById("result").textContent.slice(6)}
+        Məbləğ: ${document.getElementById("result").textContent.slice(6)}AZN
         `);
         console.log(message);
     window.location.href = `https://wa.me/${whatsappNumber}?text=${message}`;

@@ -30,83 +30,7 @@
 body {
   animation: fadeIn 1s ease-in-out;
 }
-section {
-  margin: 70px 0;
-}
-.calculator {
-  background: var(--header-color);
-  border-radius: var(--box-border);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 400px;
-  margin: 20px auto;
-  width: 100%;
-  text-align: center;
-}
-
-.calculator h1 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: var(--color-primary);
-}
-
-.form-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--color-text-dark);
-}
-
-select,
-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid var(--light-gray);
-  border-radius: var(--box-border);
-}
-
-button {
-  padding: 10px 20px;
-  background-color: var(--color-primary);
-  color: var(--color-text-dark);
-  border: none;
-  border-radius: var(--box-border);
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 15px;
-}
-#bookNow {
-  background-color: var(--color-text-dark);
-  color: var(--color-text-light);
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-.hidden {
-  display: none;
-}
-
-.result {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--color-primary);
-}
-
-.whatsapp-logo {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  margin-right: 8px;
-}
-
+/* pc and mobile menu */
 .pc-menu {
   position: fixed;
   width: 100%;
@@ -185,7 +109,6 @@ header ul li a:hover::after {
   font-size: 30px;
   padding: 20px 25px;
   text-align: center;
-  cursor: pointer;
 }
 .mobile-menu ul li a {
   color: #000;
@@ -233,11 +156,71 @@ header ul li a:hover::after {
   border: 1px solid var(--color-primary);
 }
 
+/* profile */
+main {
+  margin: 60px auto;
+  text-align: center;
+}
+.profile .ProfilPicture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--color-text-dark);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin: 0 auto;
+}
+.profile .ProfilPicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.name {
+  padding: 20px;
+}
+.name h2 {
+  font-size: 2rem;
+  background-color: var(--color-primary);
+  display: inline;
+  padding: 3px 10px;
+  text-align: center;
+  border-radius: var(--box-border);
+  color: var(--color-text-dark);
+  margin: 10px;
+  cursor: pointer;
+}
+.name p {
+  color: gray;
+  cursor: pointer;
+}
+
+.presentations {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 4px;
+}
+.presentations .presentation {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.presentations .presentation img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* footer side */
 footer {
   background-color: var(--footer-color, black);
   color: white;
   text-align: center;
+  cursor: pointer;
+  margin-top: 80px;
 }
 .newsletter {
   display: flex;
@@ -285,7 +268,7 @@ footer .footer-logo {
   color: #333;
 }
 
-/* Responsive Design */
+/* responsive desig */
 @media (max-width: 768px) {
   .pc-menu {
     display: none;
@@ -293,51 +276,27 @@ footer .footer-logo {
   .mobile-menu {
     display: block;
   }
-  footer {
-    margin-bottom: 70px;
-  }
-  .hero-section {
-    padding: 0 20px;
+  .presentations {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for tablets */
+    gap: 12px;
   }
 
-  .title {
-    font-size: 36px;
-  }
-
-  .description {
-    font-size: 14px;
-  }
-
-  .actions {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .content {
-    left: 0;
-  }
-
-  .button {
-    padding: 10px 20px;
-    width: 100%;
-    text-align: center;
+  .presentations .presentation {
+    width: 120px; /* Smaller dimensions */
+    height: 120px;
   }
 }
 
+/* Mobile View */
 @media (max-width: 480px) {
-  .title {
-    font-size: 28px;
+  .presentations {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
+    gap: 8px;
   }
 
-  .description {
-    font-size: 12px;
-  }
-
-  .subtitle {
-    font-size: 12px;
-  }
-
-  .button {
-    padding: 8px 16px;
+  .presentations .presentation {
+    width: 100%; /* Dynamic size based on grid */
+    height: auto;
+    aspect-ratio: 1 / 1; /* Keeps square aspect */
   }
 }
