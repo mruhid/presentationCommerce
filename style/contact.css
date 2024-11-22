@@ -109,6 +109,7 @@ header ul li a:hover::after {
   font-size: 30px;
   padding: 20px 25px;
   text-align: center;
+  cursor: pointer;
 }
 .mobile-menu ul li a {
   color: #000;
@@ -161,7 +162,6 @@ footer {
   background-color: var(--footer-color, black);
   color: white;
   text-align: center;
-  cursor: pointer;
 }
 .newsletter {
   display: flex;

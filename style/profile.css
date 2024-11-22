@@ -109,6 +109,7 @@ header ul li a:hover::after {
   font-size: 30px;
   padding: 20px 25px;
   text-align: center;
+  cursor: pointer;
 }
 .mobile-menu ul li a {
   color: #000;
@@ -219,7 +220,6 @@ footer {
   background-color: var(--footer-color, black);
   color: white;
   text-align: center;
-  cursor: pointer;
   margin-top: 80px;
 }
 .newsletter {
@@ -276,27 +276,37 @@ footer .footer-logo {
   .mobile-menu {
     display: block;
   }
+  footer {
+    margin-bottom: 70px;
+  }
   .presentations {
     grid-template-columns: repeat(3, 1fr); /* Three columns for tablets */
     gap: 12px;
   }
 
   .presentations .presentation {
-    width: 120px; /* Smaller dimensions */
-    height: 120px;
+    width: 320px; /* Smaller dimensions */
+    height: 320px;
   }
 }
 
 /* Mobile View */
 @media (max-width: 480px) {
+  .name h2 {
+    font-size: 18px;
+  }
   .presentations {
+    display: grid; /* Ensure grid layout is applied */
     grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
-    gap: 8px;
+    gap: 4px; /* Space between grid items */
   }
 
   .presentations .presentation {
-    width: 100%; /* Dynamic size based on grid */
-    height: auto;
-    aspect-ratio: 1 / 1; /* Keeps square aspect */
+    max-width: 200px; /* Maximum width for individual items */
+    width: 96%; /* Responsive width */
+    height: auto; /* Maintain height proportional to width */
+    aspect-ratio: 1 / 1; /* Keeps a square aspect ratio */
+    /* Ensure backward compatibility for older browsers */
+    -webkit-aspect-ratio: 1 / 1; /* Safari support */
   }
 }
