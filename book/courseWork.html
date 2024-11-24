@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cv Sifarişi</title>
+    <link rel="stylesheet" href="./style/courseWork.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+      
+    <header class="pc-menu">
+        <ul>
+            <li><a href="../index.html">Ana Səhifə</a></li>
+            <li><a href="../about.html">Haqqımızda</a></li>
+            <li><a href="../price.html">Sifariş ver</a></li>
+            <li><a href="../contact.html">Əlaqə</a> </li>
+        </ul>
+        <div class="profilPicture"><a href="../profile.html"> <img src="../img/default/profilPictureDefault.jpg" alt="Profil"></a>
+        </div>
+    </header>
+
+    <div class="mobile-menu">
+      <ul>
+        <li ><a href="../index.html"><i class="fas fa-home"></i></a> </li>
+        <li><a href="../about.html"><i class="fas fa-info-circle"></i></a></li>
+        <li class="plus"><a href="../price.html"><i class="fas fa-plus"></i></a></li>
+        <li><a href="../contact.html"><i class="fas fa-envelope"></i></a></li>
+        <li><a href="../profile.html"><i class="fas fa-user"></i></a></li>
+      </ul>
+    </div>
+
+    <section>
+        <div class="calculator">
+            <h1>Kurs İşi Üçün Qiymət Hesablama</h1>
+          
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="fullName">Tam Ad</label>
+              <input type="text" id="fullName" placeholder="Tam adınızı daxil edin" />
+            </div>
+          
+            <!-- Phone Number -->
+            <div class="form-group">
+              <label for="phoneNumber">Telefon Nömrəsi</label>
+              <input type="tel" id="phoneNumber" placeholder="Telefon nömrənizi daxil edin" />
+            </div>
+          
+            <!-- Language -->
+            <div class="form-group">
+              <label for="language">Dil</label>
+              <select id="language">
+                <option value="">-- Dil Seçimi --</option>
+                <option value="azerbaycan">Azərbaycan</option>
+                <option value="ingilis">İngilis</option>
+                <option value="rus">Rus</option>
+              </select>
+            </div>
+          
+            <!-- Topic Difficulty -->
+            <div class="form-group">
+              <label for="topicDifficulty">Mövzunun Çətinliyi</label>
+              <select id="topicDifficulty">
+                <option value="">-- Çətinliyi Seçin --</option>
+                <option value="sade">Sadə Mövzular</option>
+                <option value="cetin">Çətin Mövzular</option>
+              </select>
+            </div>
+          
+            <!-- Page Count -->
+            <div class="form-group">
+              <label for="pageCount">Səhifə Sayı</label>
+              <select id="pageCount">
+                <option value="">-- Səhifə Sayını Seçin --</option>
+                <option value="qisa">10-20 Səhifə</option>
+                <option value="gesis">20-100 Səhifə</option>
+              </select>
+            </div>
+          
+            <!-- Research Level -->
+            <div class="form-group">
+              <label for="researchLevel">Tədqiqat Səviyyəsi</label>
+              <select id="researchLevel">
+                <option value="">-- Səviyyəni Seçin --</option>
+                <option value="esas">Əsas Mənbələr</option>
+                <option value="derin">Dərin Elmi Tədqiqat</option>
+              </select>
+            </div>
+          
+            <!-- Presentation Inclusion -->
+            <div class="form-group">
+              <label for="presentation">Təqdimatın Daxil Edilməsi</label>
+              <select id="presentation">
+                <option value="">-- Təqdimatı Seçin --</option>
+                <option value="yox">Yalnız Mətn</option>
+                <option value="var">PowerPoint Təqdimat ilə</option>
+              </select>
+            </div>
+          
+            <!-- Time Factor -->
+            <div class="form-group">
+              <label for="timeFactor">Vaxt Faktoru</label>
+              <select id="timeFactor">
+                <option value="">-- Vaxtı Seçin --</option>
+                <option value="standart">Standart (2 həftə və ya daha çox)</option>
+                <option value="tecili">Təcili (bir neçə gün)</option>
+              </select>
+            </div>
+          
+            <!-- Customization -->
+            <div class="form-group">
+              <label for="customization">Fərdiləşdirmə Səviyyəsi</label>
+              <select id="customization">
+                <option value="">-- Fərdiləşdirməni Seçin --</option>
+                <option value="minimal">Minimal</option>
+                <option value="ferdi">Dərindən Fərdiləşdirilmiş</option>
+              </select>
+            </div>
+          
+            <button id="calculate">Hesabla</button>
+            <div class="result" id="result"></div>
+            <button id="bookNow" class="hidden">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-logo">
+              İndi sifariş ver
+            </button>
+          </div>
+          
+          
+          
+      </section>
+
+      <div id="successModal" class="modal">
+        <div class="modal-content">
+          <div class="x"><span id="closeModal" class="close">&times;</span></div>
+          <p id="successMessage">Sifarişiniz uğurla qəbul edildi!</p>
+        </div>
+      </div>
+      
+    
+      <footer>
+        <div class="newsletter">
+          <h2>Sirket adi </h2>
+          <div><img class="footer-logo" src="../img/default/loadingSkeleton.gif" alt="logo"></div>
+         
+        </div>
+      
+      <div class="copyright">
+        <h4>Teqdimat sifarisi | Sirket adi | Teqdimat sayti</h4>
+        <div title="Bizi buradan izləyə bilərsiniz" class="social">
+          <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.twitter.com"><i class='fab fa-twitter'></i></a>
+          <a href="https://www.instagram.com"><i class='fab fa-instagram'></i></a>
+          <a href="https://www.gmail.com"><i class='fas fa-envelope'></i></a>
+            <a href="https://www.whatsapp.com"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.tiktok.com"><i class="fab fa-tiktok"></i></a>
+  
+      </div>
+          <p>&#169;Ruhid.Ml All Right Reserved:2024</p>
+         
+      </div>
+      </footer>
+
+    <script src="./js/courseWork.js"></script>
+</body>
+</html>
