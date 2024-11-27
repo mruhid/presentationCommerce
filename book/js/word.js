@@ -17,6 +17,10 @@ window.addEventListener('scroll', () => {
 
 // Price Configuration
 const price = {
+  xidmetMuddeti: {
+    tecili: 20,
+    standart: 10,
+  },
     quality: {
       Zəif: 1,
       Orta: 2,
@@ -43,20 +47,21 @@ const price = {
     const quality = document.getElementById("quality").value;
     const language = document.getElementById("language").value;
     const slides = parseInt(document.getElementById("slides").value);
+  const xidmetMuddeti = document.getElementById("deliveryTime").value;
+
   
     // Validation to ensure all fields are filled
-    if (!studentName || !topicName || !contactNumber || !quality || !language || isNaN(slides) || slides <= 0) {
+        
+    if (!xidmetMuddeti || !studentName || !topicName || !contactNumber || !quality || !language || isNaN(slides) || slides <= 0 ) {
       resultDiv.textContent = "Zəhmət olmasa bütün məlumatları düzgün daxil edin.";
       resultDiv.style.color = "red";
       bookNowBtn.classList.add("hidden");
       return;
     }
   
-    // Debugging - log the values selected
-    console.log("Selected values:", { quality, language, slides });
   
     // Check if all selections are valid keys in the price object
-    if (!(quality in price.quality) || !(language in price.language)) {
+    if (!(quality in price.quality) || !(language in price.language) || !(xidmetMuddeti in price.xidmetMuddeti)) {
       resultDiv.textContent = "Xəta! Seçimlər düzgün deyil.";
       resultDiv.style.color = "red";
       bookNowBtn.classList.add("hidden");
@@ -67,6 +72,7 @@ const price = {
     const totalPrice =
       price.quality[quality] +
       price.language[language] +
+    price.xidmetMuddeti[xidmetMuddeti] +
       slides * price.pages;
   
     if (isNaN(totalPrice)) {
@@ -98,8 +104,10 @@ const price = {
         Sərbəs iş(word) sifariş etmək istəyirəm:
         - Mövzu: ${document.getElementById("topicName").value}
         - Ədəbiyyat Keyfiyyət: ${document.getElementById("quality").value}
+        - Çatdırılma Müddəti: ${document.getElementById("deliveryTime").value}
         - Dil: ${document.getElementById("language").value}
         - Word faylı səhifə sayı: ${document.getElementById("slides").value}
+        - Digər İstəklər: ${document.getElementById("others").value||"Yazılmayıb"}
         - Qiymət: ${document.getElementById("result").textContent.slice(8)}
         - Telefon Nömrəm: ${document.getElementById("contactNumber").value}
       `);

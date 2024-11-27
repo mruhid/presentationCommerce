@@ -96,6 +96,7 @@ const price = {
              -Müddət: ${document.getElementById("duration").value}
              -Dil: ${document.getElementById("language").value}
              -Qiymət: ${document.getElementById("result").textContent.slice(8)}
+             -Digər İstəklər: ${document.getElementById("others").value||"Yazılmayıb"}
              -Telefon Nömrəm: ${document.getElementById("phoneNumber").value}
             `);
       window.location.href = `https://wa.me/${whatsappNumber}?text=${message}`;

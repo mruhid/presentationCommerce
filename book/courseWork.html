@@ -34,11 +34,11 @@
     <section>
         <div class="calculator">
             <h1>Kurs İşi Üçün Qiymət Hesablama</h1>
-          
+            <form autocomplete="off">
             <!-- Full Name -->
             <div class="form-group">
               <label for="fullName">Tam Ad</label>
-              <input type="text" id="fullName" placeholder="Tam adınızı daxil edin" />
+              <input type="text" id="fullName" placeholder="Ad və soyadınlzı daxil edin" />
             </div>
           
             <!-- Phone Number -->
@@ -52,21 +52,24 @@
               <label for="language">Dil</label>
               <select id="language">
                 <option value="">-- Dil Seçimi --</option>
-                <option value="azerbaycan">Azərbaycan</option>
-                <option value="ingilis">İngilis</option>
+                <option value="az">Azərbaycan</option>
+                <option value="ing">İngilis</option>
                 <option value="rus">Rus</option>
               </select>
             </div>
           
-            <!-- Topic Difficulty -->
+            
+            <!-- Time Factor -->
             <div class="form-group">
-              <label for="topicDifficulty">Mövzunun Çətinliyi</label>
-              <select id="topicDifficulty">
-                <option value="">-- Çətinliyi Seçin --</option>
-                <option value="sade">Sadə Mövzular</option>
-                <option value="cetin">Çətin Mövzular</option>
+              <label for="timeFactor">Xidmət Müddəti</label>
+              <select id="timeFactor">
+                <option value="">-- Vaxtı Seçin --</option>
+                <option value="standart">Standart (2 həftə və ya daha çox)</option>
+                <option value="tecili">Təcili (bir neçə gün)</option>
               </select>
             </div>
+
+            
           
             <!-- Page Count -->
             <div class="form-group">
@@ -74,7 +77,7 @@
               <select id="pageCount">
                 <option value="">-- Səhifə Sayını Seçin --</option>
                 <option value="qisa">10-20 Səhifə</option>
-                <option value="gesis">20-100 Səhifə</option>
+                <option value="uzun">20-100 Səhifə</option>
               </select>
             </div>
           
@@ -98,25 +101,14 @@
               </select>
             </div>
           
-            <!-- Time Factor -->
-            <div class="form-group">
-              <label for="timeFactor">Vaxt Faktoru</label>
-              <select id="timeFactor">
-                <option value="">-- Vaxtı Seçin --</option>
-                <option value="standart">Standart (2 həftə və ya daha çox)</option>
-                <option value="tecili">Təcili (bir neçə gün)</option>
-              </select>
-            </div>
           
-            <!-- Customization -->
+          
             <div class="form-group">
-              <label for="customization">Fərdiləşdirmə Səviyyəsi</label>
-              <select id="customization">
-                <option value="">-- Fərdiləşdirməni Seçin --</option>
-                <option value="minimal">Minimal</option>
-                <option value="ferdi">Dərindən Fərdiləşdirilmiş</option>
-              </select>
+              <label for="others">Digər İstəklər</label>
+              <input type="text" id="others" placeholder="Əlavə etmək istədiyiniz məqamları yaza bilərsiniz" />
             </div>
+
+            </form>
           
             <button id="calculate">Hesabla</button>
             <div class="result" id="result"></div>

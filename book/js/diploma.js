@@ -15,10 +15,7 @@ window.addEventListener('scroll', () => {
 });
 
 const price = {
-    difficulty: {
-        Sadə: 2,
-        Mürəkkəb: 4
-    },
+   
     scope: {
         Standart: 3,
         Genişləndirilmiş: 6
@@ -54,16 +51,16 @@ calculateBtn.addEventListener("click", function () {
     const studentName = document.getElementById("studentName").value;
     const topicName = document.getElementById("topicName").value;
     const contactNumber = document.getElementById("contactNumber").value;
-    const difficulty = document.getElementById("difficulty").value;
     const scope = document.getElementById("scope").value;
     const research = document.getElementById("research").value;
     const projectType = document.getElementById("projectType").value;
     const design = document.getElementById("design").value;
     const timeframe = document.getElementById("timeframe").value;
     const language = document.getElementById("language").value;
+    const uniName = document.getElementById("uniName").value;
 
     // Validation to ensure all fields are filled
-    if (!studentName || !topicName || !contactNumber || !difficulty || !scope || !research || !projectType || !design || !timeframe || !language) {
+    if (!studentName ||!uniName || !topicName || !contactNumber  || !scope || !research || !projectType || !design || !timeframe || !language) {
         resultDiv.textContent = "Zəhmət olmasa bütün məlumatları daxil edin.";
         resultDiv.style.color = "red";
         bookNowBtn.classList.add("hidden");
@@ -71,10 +68,9 @@ calculateBtn.addEventListener("click", function () {
     }
 
     // Debugging - log the values selected
-    console.log("Selected values:", { difficulty, scope, research, projectType, design, timeframe, language });
 
     // Check if all selections are valid keys in the price object
-    if (!(difficulty in price.difficulty) || !(scope in price.scope) || !(research in price.research) || !(projectType in price.projectType) || !(design in price.design) || !(timeframe in price.timeframe) || !(language in price.language)) {
+    if ( !(scope in price.scope) || !(research in price.research) || !(projectType in price.projectType) || !(design in price.design) || !(timeframe in price.timeframe) || !(language in price.language)) {
         resultDiv.textContent = "Xəta! Seçimlər düzgün deyil.";
         resultDiv.style.color = "red";
         bookNowBtn.classList.add("hidden");
@@ -83,7 +79,7 @@ calculateBtn.addEventListener("click", function () {
 
     // Calculate total price
     const totalPrice =
-        price.difficulty[difficulty] +
+        
         price.scope[scope] +
         price.research[research] +
         price.projectType[projectType] +
@@ -118,13 +114,14 @@ bookNowBtn.addEventListener("click", function () {
             Salam, Mən ${document.getElementById("studentName").value}.
             Diplom işi sifariş etmək istəyirəm:
             -Mövzu: ${document.getElementById("topicName").value}
-            -Çətinlik: ${document.getElementById("difficulty").value}
+            -Universitet: ${document.getElementById("uniName").value}
             -İş Həcmi: ${document.getElementById("scope").value}
             -Araşdırma: ${document.getElementById("research").value}
             -Tədqiqat Növü: ${document.getElementById("projectType").value}
             -Dizayn: ${document.getElementById("design").value}
             -Vaxt: ${document.getElementById("timeframe").value}
             -Dil: ${document.getElementById("language").value}
+            -Digər İstəklər: ${document.getElementById("others").value||"Yazılmayıb"}
             -Qiymət: ${document.getElementById("result").textContent.slice(8)}
             -Telefon Nömrəm: ${document.getElementById("contactNumber").value}
         `);

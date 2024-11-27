@@ -26,10 +26,7 @@ const price = {
       umumi: 5,
       ferdi: 10,
     },
-    sektorNovu: {
-      sade: 5,
-      reqabet: 15,
-    },
+   
     xidmetMuddeti: {
       tecili: 20,
       standart: 10,
@@ -52,7 +49,6 @@ const price = {
   const letterSubject = document.getElementById("letterSubject").value;
   const mektubMaqsedi = document.getElementById("letterPurpose").value;
   const ferdiSeviyye = document.getElementById("customizationLevel").value;
-  const sektorNovu = document.getElementById("sectorType").value;
   const xidmetMuddeti = document.getElementById("deliveryTime").value;
   const dil = document.getElementById("language").value;
   
@@ -63,7 +59,6 @@ const price = {
         !letterSubject ||
         !mektubMaqsedi ||
         !ferdiSeviyye ||
-        !sektorNovu ||
         !xidmetMuddeti ||
         !dil
       ) {
@@ -77,7 +72,6 @@ const price = {
     const totalPrice =
     price.mektubMaqsedi[mektubMaqsedi] +
     price.ferdiSeviyye[ferdiSeviyye] +
-    price.sektorNovu[sektorNovu] +
     price.xidmetMuddeti[xidmetMuddeti] +
     price.dil[dil];
 
@@ -100,9 +94,9 @@ const price = {
         - Məktub Mövzusu: ${document.getElementById("letterSubject").value}
         - Məqsəd: ${document.getElementById("letterPurpose").value}
         - Fərdiləşdirmə Səviyyəsi: ${document.getElementById("customizationLevel").value}
-        - Sektor Növü: ${document.getElementById("sectorType").value}
         - Çatdırılma Müddəti: ${document.getElementById("deliveryTime").value}
         - Dil: ${document.getElementById("language").value}
+        - Digər İstəklər: ${document.getElementById("others").value||"Yazılmayıb"}
         - Qiymət: ${document.getElementById("result").textContent.slice(8)}
         - Telefon Nömrəm: ${document.getElementById("phoneNumber").value}
       `);

@@ -22,6 +22,10 @@ const price = {
       Orta: 2,
       Güclü: 3,
     },
+    timeframe: {
+      Təcili: 5,
+      Standart: 2
+  },
     language: {
       az: 1,
       eng: 3,
@@ -41,22 +45,24 @@ const price = {
     const topicName = document.getElementById("topicName").value.trim();
     const contactNumber = document.getElementById("contactNumber").value.trim();
     const quality = document.getElementById("quality").value;
+    const timeframe = document.getElementById("timeframe").value;
     const language = document.getElementById("language").value;
     const slides = parseInt(document.getElementById("slides").value);
+    const uniName = document.getElementById("uniName").value;
+
   
     // Validation to ensure all fields are filled
-    if (!studentName || !topicName || !contactNumber || !quality || !language || isNaN(slides) || slides <= 0) {
+    if (!studentName|| !uniName || !timeframe || !topicName || !contactNumber || !quality || !language || isNaN(slides) || slides <= 0) {
       resultDiv.textContent = "Zəhmət olmasa bütün məlumatları düzgün daxil edin.";
       resultDiv.style.color = "red";
       bookNowBtn.classList.add("hidden");
       return;
     }
   
-    // Debugging - log the values selected
-    console.log("Selected values:", { quality, language, slides });
+    
   
     // Check if all selections are valid keys in the price object
-    if (!(quality in price.quality) || !(language in price.language)) {
+    if (!(quality in price.quality) || !(language in price.language) || !(timeframe in price.timeframe)) {
       resultDiv.textContent = "Xəta! Seçimlər düzgün deyil.";
       resultDiv.style.color = "red";
       bookNowBtn.classList.add("hidden");
@@ -66,6 +72,7 @@ const price = {
     // Calculate Total Price
     const totalPrice =
       price.quality[quality] +
+      price.timeframe[timeframe] +
       price.language[language] +
       slides * price.slides;
   
@@ -97,9 +104,12 @@ const price = {
         Salam, Mən ${document.getElementById("studentName").value}.
         Təqdimat sifariş etmək istəyirəm:
         - Mövzu: ${document.getElementById("topicName").value}
+        -Universitet: ${document.getElementById("uniName").value}
         - Keyfiyyət: ${document.getElementById("quality").value}
         - Dil: ${document.getElementById("language").value}
+        -Vaxt: ${document.getElementById("timeframe").value}
         - Slaydların sayı: ${document.getElementById("slides").value}
+        -Digər İstəklər: ${document.getElementById("others").value||"Yazılmayıb"}
         - Qiymət: ${document.getElementById("result").textContent.slice(8)}
         - Telefon Nömrəm: ${document.getElementById("contactNumber").value}
       `);

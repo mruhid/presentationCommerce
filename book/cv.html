@@ -34,15 +34,36 @@
     <section>
         <div class="calculator">
           <h1>CV Üçün Qiymət Hesablama</h1>
+        <form autocomplete="off">
+
           <div class="form-group">
             <label for="fullName">Tam Ad</label>
-            <input type="text" id="fullName" placeholder="Tam adınızı daxil edin" />
+            <input type="text" id="fullName" placeholder="Ad və soyadınızı daxil edin" />
           </div>
           
           <!-- Phone Number Input -->
           <div class="form-group">
             <label for="phoneNumber">Telefon Nömrəsi</label>
             <input type="tel" id="phoneNumber" placeholder="Telefon nömrənizi daxil edin" />
+          </div>
+          
+          <div class="form-group">
+            <label for="language">Dil</label>
+            <select id="language">
+              <option value="">-- Dil Seçimi --</option>
+              <option value="azerbaijani">Azərbaycan</option>
+              <option value="english">İngilis</option>
+              <option value="russian">Rus</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="duration">Müddət</label>
+            <select id="duration">
+              <option value="">-- Müddət Seçin --</option>
+              <option value="urgent">Təcili Xidmət</option>
+              <option value="standard">Standart Xidmət</option>
+            </select>
           </div>
           
           <div class="form-group">
@@ -53,16 +74,7 @@
               <option value="professional">Peşəkar dizaynlı CV</option>
             </select>
           </div>
-      
-          <div class="form-group">
-            <label for="serviceLevel">Xidmət Səviyyəsi</label>
-            <select id="serviceLevel">
-              <option value="">-- Xidmət Səviyyəsini Seçin --</option>
-              <option value="simple">Sadə Düzəlişlər</option>
-              <option value="full">Tam Yeni CV Yazma</option>
-            </select>
-          </div>
-      
+
           <div class="form-group">
             <label for="experienceLevel">Təcrübə Səviyyəsi</label>
             <select id="experienceLevel">
@@ -73,24 +85,25 @@
             </select>
           </div>
       
-          <div class="form-group">
-            <label for="duration">Müddət</label>
-            <select id="duration">
-              <option value="">-- Müddət Seçin --</option>
-              <option value="urgent">Təcili Xidmət</option>
-              <option value="standard">Standart Xidmət</option>
-            </select>
-          </div>
       
           <div class="form-group">
-            <label for="language">Dil</label>
-            <select id="language">
-              <option value="">-- Dil Seçimi --</option>
-              <option value="azerbaijani">Azərbaycan</option>
-              <option value="english">İngilis</option>
-              <option value="russian">Rus</option>
+            <label for="serviceLevel">Xidmət Səviyyəsi</label>
+            <select id="serviceLevel">
+              <option value="">-- Xidmət Səviyyəsini Seçin --</option>
+              <option value="simple">Sadə Düzəlişlər</option>
+              <option value="full">Tam Yeni CV Yazma</option>
             </select>
           </div>
+
+          <div class="form-group">
+            <label for="others">Digər İstəklər</label>
+            <input type="text" id="others" placeholder="Əlavə etmək istədiyiniz məqamları yaza bilərsiniz" />
+          </div>
+      
+         
+          </form>
+      
+         
       
           <button id="calculate">Hesabla</button>
           <div class="result" id="result"></div>

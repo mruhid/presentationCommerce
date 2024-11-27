@@ -34,10 +34,45 @@
        <section>
         <div class="calculator">
             <h1>Təqdimat qiyyməti hesablayıcı</h1>
+
+            <form autocomplete="off">
+
    <!-- Student Name -->
    <div class="form-group">
-    <label for="studentName" id="studentNameLabel">Aınız</label>
-    <input type="text" id="studentName" placeholder="Adınızı daxil edin">
+    <label for="studentName" id="studentNameLabel">Tam Ad</label>
+    <input type="text" id="studentName" placeholder="Ad və soyadınızı daxil edin">
+  </div>
+
+  <!-- Contact Number -->
+  <div class="form-group">
+    <label for="contactNumber" id="contactNumberLabel">Əlaqə Nömrəsi</label>
+    <input type="tel" id="contactNumber" placeholder="Telefon nömrənizi daxil edin">
+  </div>
+
+  <div class="form-group">
+    <label for="language">Dil</label>
+    <select id="language">
+      <option value="">--  Dil seçimi --</option>
+      <option value="az">Azərbaycan</option>
+      <option value="eng">Ingilis</option>
+      <option value="rus">Rus</option>
+    </select>
+  </div>
+
+  <!-- Timeframe -->
+  <div class="form-group">
+    <label for="timeframe" id="timeframeLabel">Müddət</label>
+    <select id="timeframe">
+      <option value="">-- Seçim edin --</option>
+      <option value="Standart">Standart müddət</option>
+      <option value="Təcili">Təcili xidmət</option>
+    </select>
+  </div>
+
+  <!-- Uni Name -->
+  <div class="form-group">
+    <label for="topicName" id="uniNameLabel">Universitet Adı</label>
+    <input type="text" id="uniName" placeholder="Universitet adını daxil edin">
   </div>
 
   <!-- Topic Name -->
@@ -46,10 +81,9 @@
     <input type="text" id="topicName" placeholder="Mövzunun adını daxil edin">
   </div>
 
-  <!-- Contact Number -->
   <div class="form-group">
-    <label for="contactNumber" id="contactNumberLabel">Əlaqə Nömrəsi</label>
-    <input type="tel" id="contactNumber" placeholder="Telefon nömrənizi daxil edin">
+    <label for="slides">Slide sayı</label>
+    <input type="number" id="slides" min="1" placeholder="Sayı daxil edin">
   </div>
 
             <div class="form-group">
@@ -61,19 +95,16 @@
                 <option value="Güclü">Güclü</option>
               </select>
             </div>
+            
             <div class="form-group">
-              <label for="language">Dil</label>
-              <select id="language">
-                <option value="">--  Dil seçimi --</option>
-                <option value="az">Azərbaycan</option>
-                <option value="eng">Ingilis</option>
-                <option value="rus">Rus</option>
-              </select>
+              <label for="others">Digər İstəklər</label>
+              <input type="text" id="others" placeholder="Əlavə etmək istədiyiniz məqamları yaza bilərsiniz" />
             </div>
-            <div class="form-group">
-              <label for="slides">Slide sayı</label>
-              <input type="number" id="slides" min="1" placeholder="Sayı daxil edin">
-            </div>
+
+           
+          </form>
+
+
             <button id="calculate">Hesabla</button>
             <div class="result" id="result"></div>
             <button id="bookNow" class="hidden">

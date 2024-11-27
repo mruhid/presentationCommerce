@@ -34,22 +34,50 @@
        <section>
         <div class="calculator">
             <h1>Sərbəst iş(word) qiyyməti hesablayıcı</h1>
+            <form autocomplete="off">
    <!-- Student Name -->
    <div class="form-group">
-    <label for="studentName" id="studentNameLabel">Aınız</label>
-    <input type="text" id="studentName" placeholder="Adınızı daxil edin">
+    <label for="studentName" id="studentNameLabel">Tam Adınız</label>
+    <input type="text" id="studentName" placeholder="Ad və soyadınızı daxil edin">
   </div>
 
-  <!-- Topic Name -->
-  <div class="form-group">
-    <label for="topicName" id="topicNameLabel">Mövzunun Adı</label>
-    <input type="text" id="topicName" placeholder="Mövzunun adını daxil edin">
-  </div>
+ 
 
   <!-- Contact Number -->
   <div class="form-group">
     <label for="contactNumber" id="contactNumberLabel">Əlaqə Nömrəsi</label>
     <input type="tel" id="contactNumber" placeholder="Telefon nömrənizi daxil edin">
+  </div>
+
+  <div class="form-group">
+    <label for="language">Dil</label>
+    <select id="language">
+      <option value="">--  Dil seçimi --</option>
+      <option value="az">Azərbaycan</option>
+      <option value="eng">Ingilis</option>
+      <option value="rus">Rus</option>
+    </select>
+  </div>
+
+   <!-- Delivery Time -->
+   <div class="form-group">
+    <label for="deliveryTime">Xidmət Müddəti</label>
+    <select id="deliveryTime">
+      <option value="">-- Müddət Seçin --</option>
+      <option value="standart">Standart (2-3 Gün)</option>
+      <option value="tecili">Təcili (24 Saat və ya az)</option>
+    </select>
+  </div>
+
+   <!-- Topic Name -->
+   <div class="form-group">
+    <label for="topicName" id="topicNameLabel">Mövzunun Adı</label>
+    <input type="text" id="topicName" placeholder="Mövzunun adını daxil edin">
+  </div>
+
+  <div class="form-group">
+    <label for="slides">Səhifə sayı</label>
+    <input type="number" id="slides" min="1" placeholder="Sayı daxil edin">
   </div>
 
             <div class="form-group">
@@ -61,19 +89,16 @@
                 <option value="Güclü">Güclü</option>
               </select>
             </div>
+
+           
+           
+
             <div class="form-group">
-              <label for="language">Dil</label>
-              <select id="language">
-                <option value="">--  Dil seçimi --</option>
-                <option value="az">Azərbaycan</option>
-                <option value="eng">Ingilis</option>
-                <option value="rus">Rus</option>
-              </select>
+              <label for="others">Digər İstəklər</label>
+              <input type="text" id="others" placeholder="Əlavə etmək istədiyiniz məqamları yaza bilərsiniz" />
             </div>
-            <div class="form-group">
-              <label for="slides">Səhifə sayı</label>
-              <input type="number" id="slides" min="1" placeholder="Sayı daxil edin">
-            </div>
+
+          </form>
             <button id="calculate">Hesabla</button>
             <div class="result" id="result"></div>
             <button id="bookNow" class="hidden">

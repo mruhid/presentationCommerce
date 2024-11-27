@@ -32,9 +32,22 @@
     </div>
 
     <section>
-    <div class="calculator">
+    <div class="calculator" >
         <h1 id="pageTitle">Diplom İşi Qiymət Hesablama</h1>
+        <form autocomplete="off">
         
+        <!-- Student Name -->
+        <div class="form-group">
+          <label for="studentName" id="studentNameLabel" autocomplete="off">Tam Ad</label>
+          <input type="text" id="studentName" placeholder="Ad və soyadınızı daxil edin">
+        </div>
+
+         <!-- Contact Number -->
+         <div class="form-group">
+          <label for="contactNumber" id="contactNumberLabel">Əlaqə Nömrəsi</label>
+          <input type="tel" id="contactNumber" placeholder="Telefon nömrənizi daxil edin">
+        </div>
+
         <!-- Language Selector -->
         <div class="language-selector">
           <label for="language">Dil Seçin:</label>
@@ -44,12 +57,23 @@
             <option value="ru">Русский</option>
           </select>
         </div>
-      
-        <!-- Student Name -->
-        <div class="form-group">
-          <label for="studentName" id="studentNameLabel">Aınız</label>
-          <input type="text" id="studentName" placeholder="Adınızı daxil edin">
+
+         <!-- Timeframe -->
+         <div class="form-group">
+          <label for="timeframe" id="timeframeLabel">Müddət</label>
+          <select id="timeframe">
+            <option value="">-- Seçim edin --</option>
+            <option value="Standart">Standart müddət</option>
+            <option value="Təcili">Təcili xidmət</option>
+          </select>
         </div>
+      
+        <!-- Uni Name -->
+        <div class="form-group">
+          <label for="topicName" id="uniNameLabel">Universitet Adı</label>
+          <input type="text" id="uniName" placeholder="Universitet adını daxil edin">
+        </div>
+        
       
         <!-- Topic Name -->
         <div class="form-group">
@@ -57,21 +81,16 @@
           <input type="text" id="topicName" placeholder="Mövzunun adını daxil edin">
         </div>
       
-        <!-- Contact Number -->
-        <div class="form-group">
-          <label for="contactNumber" id="contactNumberLabel">Əlaqə Nömrəsi</label>
-          <input type="tel" id="contactNumber" placeholder="Telefon nömrənizi daxil edin">
-        </div>
+       <!-- Project Type -->
+       <div class="form-group">
+        <label for="projectType" id="projectTypeLabel">Tədqiqatın Növü</label>
+        <select id="projectType">
+          <option value="">-- Seçim edin --</option>
+          <option value="Teorik">Teorik diplom işi</option>
+          <option value="Praktiki">Praktiki tədqiqat işi</option>
+        </select>
+      </div>
       
-        <!-- Difficulty Level -->
-        <div class="form-group">
-          <label for="difficulty" id="difficultyLabel">Mövzunun Çətinlik Səviyyəsi</label>
-          <select id="difficulty">
-            <option value="">-- Seçim edin --</option>
-            <option value="Sadə">Sadə mövzular</option>
-            <option value="Mürəkkəb">Mürəkkəb mövzular</option>
-          </select>
-        </div>
       
         <!-- Project Scope -->
         <div class="form-group">
@@ -80,6 +99,16 @@
             <option value="">-- Seçim edin --</option>
             <option value="Standart">Standart diplom işi (40-50 səhifə)</option>
             <option value="Genişləndirilmiş">Genişləndirilmiş iş (60+ səhifə)</option>
+          </select>
+        </div>
+
+         <!-- Design and Presentation -->
+         <div class="form-group">
+          <label for="design" id="designLabel">Dizayn və Təqdimat</label>
+          <select id="design">
+            <option value="">-- Seçim edin --</option>
+            <option value="YalnızMətn">Diplom işinin mətni</option>
+            <option value="Slaydlar">Diplom işi + slaydlar</option>
           </select>
         </div>
       
@@ -92,36 +121,13 @@
             <option value="Dərin">Statistik analiz və xüsusi metodologiya</option>
           </select>
         </div>
-      
-        <!-- Project Type -->
+
         <div class="form-group">
-          <label for="projectType" id="projectTypeLabel">Tədqiqatın Növü</label>
-          <select id="projectType">
-            <option value="">-- Seçim edin --</option>
-            <option value="Teorik">Teorik diplom işi</option>
-            <option value="Praktiki">Praktiki tədqiqat işi</option>
-          </select>
+          <label for="others">Digər İstəklər</label>
+          <input type="text" id="others" placeholder="Əlavə etmək istədiyiniz məqamları yaza bilərsiniz" />
         </div>
       
-        <!-- Design and Presentation -->
-        <div class="form-group">
-          <label for="design" id="designLabel">Dizayn və Təqdimat</label>
-          <select id="design">
-            <option value="">-- Seçim edin --</option>
-            <option value="YalnızMətn">Diplom işinin mətni</option>
-            <option value="Slaydlar">Diplom işi + slaydlar</option>
-          </select>
-        </div>
-      
-        <!-- Timeframe -->
-        <div class="form-group">
-          <label for="timeframe" id="timeframeLabel">Vaxt Çərçivəsi</label>
-          <select id="timeframe">
-            <option value="">-- Seçim edin --</option>
-            <option value="Standart">Standart müddət</option>
-            <option value="Təcili">Təcili xidmət</option>
-          </select>
-        </div>
+      </form>
       
         <!-- Calculate Button -->
         <button id="calculate">Hesabla</button>
