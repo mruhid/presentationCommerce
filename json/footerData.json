@@ -1,0 +1,43 @@
+{
+    "heading": "VusalDias",
+    "logoImg": "https://www.pngplay.com/wp-content/uploads/6/Adidas-White-Logo-PNG-Clipart-Background.png",
+    "socialLinks": [
+        {
+            "platform": "Facebook",
+            "iconClass": "fab fa-facebook",
+            "link": "https://www.facebook.com"
+        },
+        {
+            "platform": "Twitter",
+            "iconClass": "fab fa-twitter",
+            "link": "https://www.twitter.com"
+        },
+        {
+            "platform": "Instagram",
+            "iconClass": "fab fa-instagram",
+            "link": "https://www.instagram.com"
+        },
+        {
+            "platform": "Gmail",
+            "iconClass": "fas fa-envelope",
+            "link": "https://www.gmail.com"
+        },
+        {
+            "platform": "WhatsApp",
+            "iconClass": "fab fa-whatsapp",
+            "link": "https://www.whatsapp.com"
+        },
+        {
+            "platform": "LinkedIn",
+            "iconClass": "fab fa-linkedin",
+            "link": "https://www.linkedin.com"
+        },
+        {
+            "platform": "TikTok",
+            "iconClass": "fab fa-tiktok",
+            "link": "https://www.tiktok.com"
+        }
+    ],
+    "searchTools": "Teqdimat sifarisi | Sirket adi | Teqdimat sayti",
+    "copyright": "&#169;Ruhid.Ml All Right Reserved:2024"
+}

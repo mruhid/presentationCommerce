@@ -1,0 +1,16 @@
+{
+    "profile": {
+        "presentations": [
+            {
+                "imageSrc": "/presentation/img/Visit kart.png",
+                "altText": "Visit Cart",
+                "link": "/presentation/components/Mektub.pdf"
+            },
+            {
+                "imageSrc": "https://media.timeout.com/images/106181719/750/562/image.jpg",
+                "altText": "Akademik yazi",
+                "link": "/presentation/components/Ruhid_akademik_yazı(558).pptx"
+            }
+        ]
+    }
+}

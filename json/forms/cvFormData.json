@@ -1,0 +1,160 @@
+{
+    "title": "CV     Üçün Qiymət Hesablama",
+    "fields": [
+        {
+            "type": "text",
+            "id": "fullName",
+            "label": "Tam Ad",
+            "placeholder": "Ad və soyadınızı daxil edin",
+            "options": null
+        },
+        {
+            "type": "tel",
+            "id": "phoneNumber",
+            "label": "Telefon Nömrəsi",
+            "placeholder": "Telefon nömrənizi daxil edin",
+            "options": null
+        },
+        {
+            "type": "text",
+            "id": "others",
+            "label": "Digər İstəklər",
+            "placeholder": "Əlavə etmək istədiyiniz məqamları yaza bilərsiniz",
+            "options": null
+        },
+        {
+            "type": "select",
+            "id": "language",
+            "label": "Dil",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Dil Seçimi --"
+                },
+                {
+                    "value": "azerbaijani",
+                    "text": "Azərbaycan"
+                },
+                {
+                    "value": "english",
+                    "text": "İngilis"
+                },
+                {
+                    "value": "russian",
+                    "text": "Rus"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "duration",
+            "label": "Müddət",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Müddət Seçin --"
+                },
+                {
+                    "value": "urgent",
+                    "text": "Təcili Xidmət"
+                },
+                {
+                    "value": "standard",
+                    "text": "Standart Xidmət"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "cvType",
+            "label": "CV-in Tipi",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- CV Tipini Seçin --"
+                },
+                {
+                    "value": "standard",
+                    "text": "Standart CV"
+                },
+                {
+                    "value": "professional",
+                    "text": "Peşəkar dizaynlı CV"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "experienceLevel",
+            "label": "Təcrübə Səviyyəsi",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Təcrübə Səviyyəsini Seçin --"
+                },
+                {
+                    "value": "graduate",
+                    "text": "Yeni Məzun"
+                },
+                {
+                    "value": "mid",
+                    "text": "Orta Səviyyə"
+                },
+                {
+                    "value": "manager",
+                    "text": "İdarəçi / Rəhbər"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "serviceLevel",
+            "label": "Xidmət Səviyyəsi",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Xidmət Səviyyəsini Seçin --"
+                },
+                {
+                    "value": "simple",
+                    "text": "Sadə Düzəlişlər"
+                },
+                {
+                    "value": "full",
+                    "text": "Tam Yeni CV Yazma"
+                }
+            ],
+            "placeholder": null
+        }
+    ],
+    "price": {
+        "cvType": {
+            "standard": 1,
+            "professional": 4
+        },
+        "serviceLevel": {
+            "simple": 2,
+            "full": 4
+        },
+        "experienceLevel": {
+            "graduate": 5,
+            "mid": 10,
+            "manager": 15
+        },
+        "duration": {
+            "urgent": 20,
+            "standard": 10
+        },
+        "language": {
+            "azerbaijani": 1,
+            "english": 4,
+            "russian": 4
+        }
+    },
+    "modalText": "Sifarişinizzz uğurla qəbul edildi!",
+    "wpNumber": "https://wa.me/+994516944256"
+}

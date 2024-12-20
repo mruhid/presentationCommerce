@@ -3,6 +3,7 @@
 const header = document.querySelector('.pc-menu');
 let lastScrollY = window.scrollY;
 
+
 window.addEventListener('scroll', () => {
     if (window.scrollY > 10) {
         header.classList.add('scrolled');
@@ -15,24 +16,246 @@ window.addEventListener('scroll', () => {
     lastScrollY = window.scrollY;
 });
 
+async function fetchSlideData(sectionName) {
+  try {
+    const checkBackendUrl = await fetch("/src/src.json");
+    const backendConfig = await checkBackendUrl.json();
+
+    const url = backendConfig.backend_url + "/slide";
+
+    const fetchUrl = backendConfig.action
+      ? url
+      : "/json/forms/presentationData.json";
+
+    const options = backendConfig.action
+      ? {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // Specify the type of content being sent
+          },
+          body: JSON.stringify({ sectionName }), // Send the sectionName as part of the request
+        }
+      : null;
+
+    const response = await fetch(fetchUrl, options);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    if (!sectionName) {
+      return data;
+    }
+
+    if (data[sectionName]) {
+      return data[sectionName];
+    } else {
+      throw new Error(`Section "${sectionName}" not found in data.`);
+    }
+  } catch (error) {
+    console.error("Error fetching section data:", error);
+    return null;
+  }
+}
+
+async function footerFetchData() {
+  try {
+    // Fetch the configuration file
+    const configResponse = await fetch("/src/src.json"); // Adjust path as needed
+    if (!configResponse.ok) {
+      throw new Error(
+        `Failed to fetch config file. Status: ${configResponse.status}`
+      );
+    }
+
+    const config = await configResponse.json();
+
+    // Determine the data source (backend or fallback JSON)
+    const fetchUrl = config.action
+      ? `${config.backend_url}/footer`
+      : "/json/footerData.json"; // Adjust path as needed
+
+    // Fetch the footer data
+    const response = await fetch(fetchUrl);
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch footer data. Status: ${response.status}`
+      );
+    }
+
+    // Parse and return the data
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching footer data:", error);
+    return null; // Return null for graceful error handling
+  }
+}
+
+async function fetchCompanyData() {
+  try {
+    const configResponse = await fetch("/src/src.json"); // Adjust path as needed
+    if (!configResponse.ok) {
+      throw new Error(
+        `Failed to fetch config file. Status: ${configResponse.status}`
+      );
+    }
+
+    const config = await configResponse.json();
+
+    // Determine the data source (backend or fallback JSON)
+    const fetchUrl = config.action
+      ? `${config.backend_url}/company`
+      : "/json/companyİnformation.json"; // Adjust path as needed
+
+    // Fetch the footer data
+    const response = await fetch(fetchUrl);
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch footer data. Status: ${response.status}`
+      );
+    }
+
+    // Parse and return the data
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("Error fetching company data:", error);
+  }
+}
+async function updateHeader() {
+  const data = await fetchCompanyData();
+  if (!data.companyLogo) {
+    return;
+  }
+  const profilePicture = document.getElementById("profilePicture");
+  profilePicture.src = data.companyLogo;
+  profilePicture.alt = data.companyName;
+  document.title = `${
+    data.companyName
+      ? data.companyName + " | Book Slide"
+      : "Book Slide"
+  } `;
+  // Change the favicon
+  const favicon = document.getElementById("favicon");
+  favicon.href = `${data.companyWebLogo || ""}`;
+}
+
+async function uploadModalText() {
+  const data = await fetchSlideData("modalText");
+  const modalText = document.querySelector("#successMessage");
+  modalText.innerHTML = data;
+}
+
+async function updateFooterData() {
+  const data = await footerFetchData();
+  // Get footer elements
+  const footer = document.querySelector("footer");
+  const companyNameElement = footer.querySelector(".newsletter h2");
+  const footerLogoElement = footer.querySelector(".footer-logo");
+  const socialContainer = footer.querySelector(".social");
+  const copyrightElement = footer.querySelector(".copyright p");
+  const companySearchTools = footer.querySelector(".copyright h4");
+
+  // Set the company name and logo
+  companyNameElement.textContent = data.heading;
+  footerLogoElement.src = data.logoImg;
+  footerLogoElement.style.objectFit = "contain";
+  companySearchTools.innerHTML = data.searchTools || "";
+  // Create social media links dynamically
+  socialContainer.innerHTML = ""; // Clear existing links
+  data.socialLinks.forEach((link) => {
+    const socialLink = document.createElement("a");
+    socialLink.href = link.link;
+    socialLink.setAttribute("title", `Bizi buradan izləyə bilərsiniz`);
+    const icon = document.createElement("i");
+    icon.className = link.iconClass;
+    socialLink.appendChild(icon);
+    socialContainer.appendChild(socialLink);
+  });
+
+  // Set the copyright text
+  copyrightElement.innerHTML = data.copyright || "";
+}
+
+async function uploadSlideForm() {
+ const data = await fetchSlideData("");
+
+  const form = document.querySelector("form");
+
+  if (!form || !data.fields) {
+    console.error("Form or data fields not found.");
+    return;
+  }
+
+  // Clear existing form content
+  form.innerHTML = "";
+
+  // Set the title
+  const title = document.querySelector(".calculator h1");
+  if (title) title.textContent = data.title;
+
+  // Generate form fields
+  data.fields.forEach((field) => {
+    const formGroup = document.createElement("div");
+    formGroup.classList.add("form-group");
+
+    const label = document.createElement("label");
+    label.setAttribute("for", field.id);
+    label.textContent = field.label;
+
+    formGroup.appendChild(label);
+
+    if (["text", "tel", "number"].includes(field.type)) {
+      const input = document.createElement("input");
+      input.type = field.type;
+      input.id = field.id;
+      input.placeholder = field.placeholder || "";
+      if (field.type === "number" && field.min) input.min = field.min;
+      formGroup.appendChild(input);
+    } else if (field.type === "select") {
+      const select = document.createElement("select");
+      select.id = field.id;
+
+      if (field.options) {
+        field.options.forEach((option) => {
+          const optionElement = document.createElement("option");
+          optionElement.value = option.value;
+          optionElement.textContent = option.text;
+          select.appendChild(optionElement);
+        });
+      }
+      formGroup.appendChild(select);
+    }
+
+    form.appendChild(formGroup);
+  });
+
+  
+}
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateHeader();
+  uploadSlideForm();
+  uploadModalText();
+  updateFooterData();
+});
+
+const priceData = async () => {
+  const data = await fetchSlideData("price");
+  return data;
+};
+
+const getWhatsAppNumber = async () => {
+  const data = await fetchSlideData("wpNumber");
+  return data;
+};
+
 // Price Configuration
-const price = {
-    quality: {
-      Zəif: 1,
-      Orta: 2,
-      Güclü: 3,
-    },
-    timeframe: {
-      Təcili: 5,
-      Standart: 2
-  },
-    language: {
-      az: 1,
-      eng: 3,
-      rus: 2,
-    },
-    slides: 0.5, // Each slide adds a fixed price
-  };
+
   
   // Get DOM Elements
   const calculateBtn = document.getElementById("calculate");
@@ -40,7 +263,7 @@ const price = {
   const bookNowBtn = document.getElementById("bookNow");
   
   // Calculate Button Click Event
-  calculateBtn.addEventListener("click", function () {
+  calculateBtn.addEventListener("click", async function () {
     const studentName = document.getElementById("studentName").value.trim();
     const topicName = document.getElementById("topicName").value.trim();
     const contactNumber = document.getElementById("contactNumber").value.trim();
@@ -49,6 +272,7 @@ const price = {
     const language = document.getElementById("language").value;
     const slides = parseInt(document.getElementById("slides").value);
     const uniName = document.getElementById("uniName").value;
+    const price=await priceData();
 
   
     // Validation to ensure all fields are filled
@@ -94,12 +318,11 @@ const price = {
     const successModal = document.getElementById("successModal");
     const successMessage = document.getElementById("successMessage");
   
-    successMessage.textContent = "Sifarişiniz uğurla qəbul edildi!";
     successModal.style.display = "block";
   
     // Redirect to WhatsApp after a delay
-    setTimeout(() => {
-      const whatsappNumber = "+994516944256"; // Replace with your WhatsApp number
+    setTimeout(async () => {
+      const whatsappNumber = await getWhatsAppNumber(); // Replace with your WhatsApp number
       const message = encodeURIComponent(`
         Salam, Mən ${document.getElementById("studentName").value}.
         Təqdimat sifariş etmək istəyirəm:
@@ -113,7 +336,7 @@ const price = {
         - Qiymət: ${document.getElementById("result").textContent.slice(8)}
         - Telefon Nömrəm: ${document.getElementById("contactNumber").value}
       `);
-      window.location.href = `https://wa.me/${whatsappNumber}?text=${message}`;
+      window.location.href = `${whatsappNumber}?text=${message}`;
     }, 2000); // 2-second delay
   });
   

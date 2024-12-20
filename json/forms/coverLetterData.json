@@ -1,0 +1,143 @@
+{
+    "title": "Cover Letter Üçün Qiymət Hesablama",
+    "fields": [
+        {
+            "type": "text",
+            "id": "fullName",
+            "label": "Tam Ad",
+            "placeholder": "Ad və soyadınızı daxil edin",
+            "options": null
+        },
+        {
+            "type": "tel",
+            "id": "phoneNumber",
+            "label": "Telefon Nömrəsi",
+            "placeholder": "Telefon nömrənizi daxil edin",
+            "options": null
+        },
+        {
+            "type": "text",
+            "id": "letterSubject",
+            "label": "Məktub Mövzusu",
+            "placeholder": "Məktub mövzusunu daxil edin",
+            "options": null
+        },
+        {
+            "type": "text",
+            "id": "others",
+            "label": "Digər İstəklər",
+            "placeholder": "Əlavə etmək istədiyiniz məqamları yaza bilərsiniz",
+            "options": null
+        },
+        {
+            "type": "select",
+            "id": "language",
+            "label": "Dil",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Dil Seçimi --"
+                },
+                {
+                    "value": "azerbaycan",
+                    "text": "Azərbaycan"
+                },
+                {
+                    "value": "ingilis",
+                    "text": "İngilis"
+                },
+                {
+                    "value": "rus",
+                    "text": "Rus"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "deliveryTime",
+            "label": "Xidmət Müddəti",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Müddət Seçin --"
+                },
+                {
+                    "value": "standart",
+                    "text": "Standart (2-3 Gün)"
+                },
+                {
+                    "value": "tecili",
+                    "text": "Təcili (24 Saat və ya az)"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "letterPurpose",
+            "label": "Məktubun Məqsədi",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Məqsədi Seçin --"
+                },
+                {
+                    "value": "is",
+                    "text": "İş Müraciəti"
+                },
+                {
+                    "value": "teqaud",
+                    "text": "Təqaüd Proqramı"
+                },
+                {
+                    "value": "akademik",
+                    "text": "Akademik Qəbul"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "customizationLevel",
+            "label": "Fərdiləşdirmə Səviyyəsi",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Fərdiləşdirmə Seçimi --"
+                },
+                {
+                    "value": "umumi",
+                    "text": "Ümumi Forma"
+                },
+                {
+                    "value": "ferdi",
+                    "text": "Fərdi Təcrübə Üzrə"
+                }
+            ],
+            "placeholder": null
+        }
+    ],
+    "modalText": "Sifarişinizzz uğurla qəbul edildi!",
+    "wpNumber": "https://wa.me/+994516944256",
+    "price": {
+        "mektubMaqsedi": {
+            "is": 10,
+            "teqaud": 15,
+            "akademik": 20
+        },
+        "ferdiSeviyye": {
+            "umumi": 5,
+            "ferdi": 10
+        },
+        "xidmetMuddeti": {
+            "tecili": 20,
+            "standart": 10
+        },
+        "dil": {
+            "azerbaycan": 1,
+            "ingilis": 4,
+            "rus": 4
+        }
+    }
+}

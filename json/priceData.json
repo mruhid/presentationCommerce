@@ -1,0 +1,45 @@
+{
+  "documentSelection": {
+    "title": "Sifariş Kategoryaları",
+    "description": "Sifariş etmək istədiyin kategoriyanı seç",
+    "action": true
+  },
+  "options": [
+    {
+      "href": "./book/cv.html",
+      "iconClass": "fas fa-id-card",
+      "title": "CV",
+      "action": true
+    },
+    {
+      "href": "./book/diploma.html",
+      "iconClass": "fas fa-graduation-cap",
+      "title": "Diplom İşi",
+      "action": true
+    },
+    {
+      "href": "./book/slide.html",
+      "iconClass": "fas fa-chart-line",
+      "title": "Təqdimat(pptx)",
+      "action": true
+    },
+    {
+      "href": "./book/coverLetter.html",
+      "iconClass": "fas fa-envelope",
+      "title": "Cover Letter",
+      "action": true
+    },
+    {
+      "href": "./book/courseWork.html",
+      "iconClass": "fas fa-book",
+      "title": "Kurs İşi",
+      "action": true
+    },
+    {
+      "href": "./book/word.html",
+      "iconClass": "fas fa-file-word",
+      "title": "Word Sərbəst iş(docx)",
+      "action": true
+    }
+  ]
+}

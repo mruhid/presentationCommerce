@@ -1,0 +1,28 @@
+{
+    "aboutUsSection": {
+        "title": "Biz kimikkkkk?",
+        "action": true,
+        "imgSrc": "https://image.cnbcfm.com/api/v1/image/107432836-1719321841803-gettyimages-2154535982-porzycki-nicedail240528_npKmt.jpeg?v=1727973516",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, minima architecto sapiente harum quos distinctio quasi repellat aliquid illo sint, modi reiciendis repellendus, error veritatis atque consequatur? Minus, dolor praesentium."
+    },
+    "purposeSection": {
+        "title": "Meqsedimiz",
+        "action": true,
+        "catalog": {
+            "highlight": "Meqsedimiz",
+            "description": "Biz seliqei ve bomba teqdimat hazirlamaqdir",
+            "imgSrc": "https://image.cnbcfm.com/api/v1/image/107432836-1719321841803-gettyimages-2154535982-porzycki-nicedail240528_npKmt.jpeg?v=1727973516"
+        },
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, minima architecto sapiente harum quos distinctio quasi repellat aliquid illo sint, modi reiciendis repellendus, error veritatis atque consequatur? Minus, dolor praesentium."
+    },
+    "otherWorkSection": {
+        "backgroundImg": "./img/default/defaultOtherWorksImg.webp",
+        "action": true,
+        "overlay": {
+            "title": "Keyfiyyetli teqdimat isteyirsiniz?",
+            "description": "Artiq uzun muddetdirki bu isle mesgul oluruq!",
+            "buttonText": "Teqdimatlarimiza nezer yetir",
+            "buttonSrc": "./profile.html"
+        }
+    }
+}

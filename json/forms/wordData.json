@@ -1,0 +1,120 @@
+{
+    "title": "Sərbəst iş(word) qiyyməti hesablayıcı",
+    "fields": [
+        {
+            "type": "text",
+            "id": "studentName",
+            "label": "Tam Adınız",
+            "placeholder": "Ad və soyadınızı daxil edin"
+        },
+        {
+            "type": "tel",
+            "id": "contactNumber",
+            "label": "Əlaqə Nömrəsi",
+            "placeholder": "Telefon nömrənizi daxil edin"
+        },
+        {
+            "type": "text",
+            "id": "topicName",
+            "label": "Mövzunun Adı",
+            "placeholder": "Mövzunun adını daxil edin"
+        },
+        {
+            "type": "number",
+            "id": "slides",
+            "label": "Səhifə sayı",
+            "placeholder": "Sayı daxil edin",
+            "min": 1
+        },
+        {
+            "type": "text",
+            "id": "others",
+            "label": "Digər İstəklər",
+            "placeholder": "Əlavə etmək istədiyiniz məqamları yaza bilərsiniz"
+        },
+        {
+            "type": "select",
+            "id": "language",
+            "label": "Dil",
+            "options": [
+                {
+                    "value": "",
+                    "text": "--  Dil seçimi --"
+                },
+                {
+                    "value": "az",
+                    "text": "Azərbaycan"
+                },
+                {
+                    "value": "eng",
+                    "text": "Ingilis"
+                },
+                {
+                    "value": "rus",
+                    "text": "Rus"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "deliveryTime",
+            "label": "Xidmət Müddəti",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Müddət Seçin --"
+                },
+                {
+                    "value": "standart",
+                    "text": "Standart (2-3 Gün)"
+                },
+                {
+                    "value": "tecili",
+                    "text": "Təcili (24 Saat və ya az)"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "quality",
+            "label": "Mənbə Keyfiyyəti",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Keyfiyyət seçimi --"
+                },
+                {
+                    "value": "Zəif",
+                    "text": "Zəif"
+                },
+                {
+                    "value": "Orta",
+                    "text": "Orta"
+                },
+                {
+                    "value": "Güclü",
+                    "text": "Güclü"
+                }
+            ]
+        }
+    ],
+    "modalText": "Sifarişinizzz uğurla qəbul edildi!",
+    "wpNumber": "https://wa.me/+994516944256",
+    "price": {
+        "xidmetMuddeti": {
+            "tecili": 20,
+            "standart": 10
+        },
+        "quality": {
+            "Zəif": 1,
+            "Orta": 2,
+            "Güclü": 3
+        },
+        "language": {
+            "az": 1,
+            "eng": 3,
+            "rus": 2
+        },
+        "pages": 0.5
+    }
+}

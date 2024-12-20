@@ -41,6 +41,9 @@ body {
 main {
   margin: 40px auto;
 }
+section {
+  margin-top: 50px;
+}
 .document-selection {
   text-align: center;
   margin-bottom: 20px;

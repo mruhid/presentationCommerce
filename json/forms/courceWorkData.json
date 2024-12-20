@@ -1,0 +1,155 @@
+{
+    "title": "Kurs İşi Üçün Qiymət Hesablama",
+    "fields": [
+        {
+            "type": "text",
+            "id": "fullName",
+            "label": "Tam Ad",
+            "placeholder": "Ad və soyadınızı daxil edin",
+            "options": null
+        },
+        {
+            "type": "tel",
+            "id": "phoneNumber",
+            "label": "Telefon Nömrəsi",
+            "placeholder": "Telefon nömrənizi daxil edin",
+            "options": null
+        },
+        {
+            "type": "select",
+            "id": "language",
+            "label": "Dil",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Dil Seçimi --"
+                },
+                {
+                    "value": "az",
+                    "text": "Azərbaycan"
+                },
+                {
+                    "value": "ing",
+                    "text": "İngilis"
+                },
+                {
+                    "value": "rus",
+                    "text": "Rus"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "timeFactor",
+            "label": "Xidmət Müddəti",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Vaxtı Seçin --"
+                },
+                {
+                    "value": "standart",
+                    "text": "Standart (2 həftə və ya daha çox)"
+                },
+                {
+                    "value": "tecili",
+                    "text": "Təcili (bir neçə gün)"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "pageCount",
+            "label": "Səhifə Sayı",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Səhifə Sayını Seçin --"
+                },
+                {
+                    "value": "qisa",
+                    "text": "10-20 Səhifə"
+                },
+                {
+                    "value": "uzun",
+                    "text": "20-100 Səhifə"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "researchLevel",
+            "label": "Tədqiqat Səviyyəsi",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Səviyyəni Seçin --"
+                },
+                {
+                    "value": "esas",
+                    "text": "Əsas Mənbələr"
+                },
+                {
+                    "value": "derin",
+                    "text": "Dərin Elmi Tədqiqat"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "presentation",
+            "label": "Təqdimatın Daxil Edilməsi",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Təqdimatı Seçin --"
+                },
+                {
+                    "value": "yox",
+                    "text": "Yalnız Mətn"
+                },
+                {
+                    "value": "var",
+                    "text": "PowerPoint Təqdimat ilə"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "text",
+            "id": "others",
+            "label": "Digər İstəklər",
+            "placeholder": "Əlavə etmək istədiyiniz məqamları yaza bilərsiniz",
+            "options": null
+        }
+    ],
+    "modalText": "Sifarişinizzz uğurla qəbul edildi!",
+    "wpNumber": "https://wa.me/+994516944256",
+    "price": {
+        "pageCount": {
+            "qisa": 15,
+            "uzun": 30
+        },
+        "researchLevel": {
+            "esas": 10,
+            "derin": 25
+        },
+        "presentation": {
+            "yox": 0,
+            "var": 10
+        },
+        "timeFactor": {
+            "standart": 4,
+            "tecili": 20
+        },
+        "language": {
+            "az": 5,
+            "ing": 10,
+            "rus": 8
+        }
+    }
+}
