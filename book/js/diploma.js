@@ -14,14 +14,14 @@ window.addEventListener("scroll", () => {
 
 async function fetchDiplomaData(sectionName) {
   try {
-    const checkBackendUrl = await fetch("/src/src.json");
+    const checkBackendUrl = await fetch("../../src/src.json");
     const backendConfig = await checkBackendUrl.json();
 
     const url = backendConfig.backend_url + "/diploma";
 
     const fetchUrl = backendConfig.action
       ? url
-      : "/json/forms/diplomaData.json";
+      : "../../json/forms/diplomaData.json";
 
     const options = backendConfig.action
       ? {
@@ -58,7 +58,7 @@ async function fetchDiplomaData(sectionName) {
 async function footerFetchData() {
   try {
     // Fetch the configuration file
-    const configResponse = await fetch("/src/src.json"); // Adjust path as needed
+    const configResponse = await fetch("../../src/src.json"); // Adjust path as needed
     if (!configResponse.ok) {
       throw new Error(
         `Failed to fetch config file. Status: ${configResponse.status}`
@@ -70,7 +70,7 @@ async function footerFetchData() {
     // Determine the data source (backend or fallback JSON)
     const fetchUrl = config.action
       ? `${config.backend_url}/footer`
-      : "/json/footerData.json"; // Adjust path as needed
+      : "../../json/footerData.json"; // Adjust path as needed
 
     // Fetch the footer data
     const response = await fetch(fetchUrl);
@@ -91,7 +91,7 @@ async function footerFetchData() {
 
 async function fetchCompanyData() {
   try {
-    const configResponse = await fetch("/src/src.json"); // Adjust path as needed
+    const configResponse = await fetch("../../src/src.json"); // Adjust path as needed
     if (!configResponse.ok) {
       throw new Error(
         `Failed to fetch config file. Status: ${configResponse.status}`
@@ -103,7 +103,7 @@ async function fetchCompanyData() {
     // Determine the data source (backend or fallback JSON)
     const fetchUrl = config.action
       ? `${config.backend_url}/company`
-      : "/json/companyİnformation.json"; // Adjust path as needed
+      : "../../json/companyİnformation.json"; // Adjust path as needed
 
     // Fetch the footer data
     const response = await fetch(fetchUrl);

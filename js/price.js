@@ -68,7 +68,7 @@ async function footerFetchData() {
     // Determine the data source (backend or fallback JSON)
     const fetchUrl = config.action
       ? `${config.backend_url}/footer`
-      : "/json/footerData.json"; // Adjust path as needed
+      : "../json/footerData.json"; // Adjust path as needed
 
     // Fetch the footer data
     const response = await fetch(fetchUrl);
@@ -101,7 +101,7 @@ async function fetchCompanyData() {
     // Determine the data source (backend or fallback JSON)
     const fetchUrl = config.action
       ? `${config.backend_url}/company`
-      : "/json/companyİnformation.json"; // Adjust path as needed
+      : "../json/companyİnformation.json"; // Adjust path as needed
 
     // Fetch the footer data
     const response = await fetch(fetchUrl);
