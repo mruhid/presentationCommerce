@@ -66,7 +66,6 @@ async function footerFetchData() {
   try {
     const basePath = "/presentationCommerce"
 
-    await fetch(`${basePath}/src/src.json`)
     // Fetch the configuration file
     const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
     if (!configResponse.ok) {
