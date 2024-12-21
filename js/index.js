@@ -2,6 +2,8 @@
 const header = document.querySelector(".pc-menu");
 const heroSection = document.querySelector(".hero-section");
 let lastScrollY = window.scrollY;
+const basePath = "/presentationCommerce"
+
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 10) {
@@ -24,7 +26,6 @@ window.addEventListener("scroll", () => {
 
 async function fetchHomeData(sectionName) {
   try {
-    const basePath = "/presentationCommerce"
     
     const checkBackendUrl =await fetch(`${basePath}/src/src.json`)
     const backendConfig = await checkBackendUrl.json();
@@ -64,7 +65,6 @@ async function fetchHomeData(sectionName) {
 
 async function footerFetchData() {
   try {
-    const basePath = "/presentationCommerce"
 
     // Fetch the configuration file
     const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
@@ -100,7 +100,6 @@ async function footerFetchData() {
 
 async function fetchCompanyData() {
   try {
-    const basePath = "/presentationCommerce"
     await fetch(`${basePath}/src/src.json`)
     const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
     if (!configResponse.ok) {
