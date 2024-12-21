@@ -24,7 +24,10 @@ window.addEventListener("scroll", () => {
 
 async function fetchHomeData(sectionName) {
   try {
-    const checkBackendUrl = await fetch("../src/src.json");
+    const basePath = window.location.pathname.includes('presentationCommerce')
+    ? '/presentationCommerce'
+    : ''; 
+    const checkBackendUrl = await fetch(`${basePath}/src/src.json`);
     const backendConfig = await checkBackendUrl.json();
 
     const url = backendConfig.backend_url + "/home";
@@ -62,8 +65,11 @@ async function fetchHomeData(sectionName) {
 
 async function footerFetchData() {
   try {
+    const basePath = window.location.pathname.includes('presentationCommerce')
+    ? '/presentationCommerce'
+    : '';
     // Fetch the configuration file
-    const configResponse = await fetch("../src/src.json"); // Adjust path as needed
+    const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
     if (!configResponse.ok) {
       throw new Error(
         `Failed to fetch config file. Status: ${configResponse.status}`
@@ -96,7 +102,10 @@ async function footerFetchData() {
 
 async function fetchCompanyData() {
   try {
-    const configResponse = await fetch("../src/src.json"); // Adjust path as needed
+    const basePath = window.location.pathname.includes('presentationCommerce')
+    ? '/presentationCommerce'
+    : ''; 
+    const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
     if (!configResponse.ok) {
       throw new Error(
         `Failed to fetch config file. Status: ${configResponse.status}`
