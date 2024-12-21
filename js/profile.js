@@ -1,5 +1,7 @@
 const header = document.querySelector(".pc-menu");
 let lastScrollY = window.scrollY;
+const basePath = "/presentationCommerce"
+
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 10) {
@@ -14,12 +16,12 @@ window.addEventListener("scroll", () => {
 // Update functions for convert fetch data to html elements
 async function fetchProfileData(sectionName) {
   try {
-    const checkBackendUrl = await fetch("../src/src.json");
+    const checkBackendUrl = await fetch(`${basePath}/src/src.json`);
     const backendConfig = await checkBackendUrl.json();
 
     const url = backendConfig.backend_url + "/profile";
 
-    const fetchUrl = backendConfig.action ? url : "/json/profileData.json";
+    const fetchUrl = backendConfig.action ? url : `${basePath}/json/profileData.json`;
 
     const options = backendConfig.action
       ? {
@@ -53,7 +55,7 @@ async function fetchProfileData(sectionName) {
 async function footerFetchData() {
   try {
     // Fetch the configuration file
-    const configResponse = await fetch("../src/src.json"); // Adjust path as needed
+    const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
     if (!configResponse.ok) {
       throw new Error(
         `Failed to fetch config file. Status: ${configResponse.status}`
@@ -65,7 +67,7 @@ async function footerFetchData() {
     // Determine the data source (backend or fallback JSON)
     const fetchUrl = config.action
       ? `${config.backend_url}/footer`
-      : "/json/footerData.json"; // Adjust path as needed
+      : `${basePath}/json/footerData.json`; // Adjust path as needed
 
     // Fetch the footer data
     const response = await fetch(fetchUrl);
@@ -86,7 +88,7 @@ async function footerFetchData() {
 
 async function fetchCompanyData() {
   try {
-    const configResponse = await fetch("../src/src.json"); // Adjust path as needed
+    const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
     if (!configResponse.ok) {
       throw new Error(
         `Failed to fetch config file. Status: ${configResponse.status}`
@@ -98,7 +100,7 @@ async function fetchCompanyData() {
     // Determine the data source (backend or fallback JSON)
     const fetchUrl = config.action
       ? `${config.backend_url}/company`
-      : "/json/companyİnformation.json"; // Adjust path as needed
+      : `${basePath}/json/companyİnformation.json`; // Adjust path as needed
 
     // Fetch the footer data
     const response = await fetch(fetchUrl);
