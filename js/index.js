@@ -24,15 +24,13 @@ window.addEventListener("scroll", () => {
 
 async function fetchHomeData(sectionName) {
   try {
-    const basePath = window.location.pathname.includes('presentationCommerce')
-    ? '/presentationCommerce'
-    : ''; 
-    const checkBackendUrl = await fetch(`${basePath}/src/src.json`);
+    const basePath = "/presentationCommerce"
+    const checkBackendUrl =await fetch(`${basePath}/src/src.json`)
     const backendConfig = await checkBackendUrl.json();
 
     const url = backendConfig.backend_url + "/home";
 
-    const fetchUrl = backendConfig.action ? url : "../json/homePageData.json";
+    const fetchUrl = backendConfig.action ? url : `${basePath}/json/homePageData.json`;
 
     const options = backendConfig.action
       ? {
@@ -65,9 +63,7 @@ async function fetchHomeData(sectionName) {
 
 async function footerFetchData() {
   try {
-    const basePath = window.location.pathname.includes('presentationCommerce')
-    ? '/presentationCommerce'
-    : '';
+    await fetch(`${basePath}/src/src.json`)
     // Fetch the configuration file
     const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
     if (!configResponse.ok) {
@@ -81,7 +77,7 @@ async function footerFetchData() {
     // Determine the data source (backend or fallback JSON)
     const fetchUrl = config.action
       ? `${config.backend_url}/footer`
-      : "/json/footerData.json"; // Adjust path as needed
+      : `${basePath}/json/footerData.json`; // Adjust path as needed
 
     // Fetch the footer data
     const response = await fetch(fetchUrl);
@@ -102,9 +98,7 @@ async function footerFetchData() {
 
 async function fetchCompanyData() {
   try {
-    const basePath = window.location.pathname.includes('presentationCommerce')
-    ? '/presentationCommerce'
-    : ''; 
+    await fetch(`${basePath}/src/src.json`)
     const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
     if (!configResponse.ok) {
       throw new Error(
@@ -117,7 +111,7 @@ async function fetchCompanyData() {
     // Determine the data source (backend or fallback JSON)
     const fetchUrl = config.action
       ? `${config.backend_url}/company`
-      : "/json/companyİnformation.json"; // Adjust path as needed
+      : `${basePath}/json/companyİnformation.json`; // Adjust path as needed
 
     // Fetch the footer data
     const response = await fetch(fetchUrl);
