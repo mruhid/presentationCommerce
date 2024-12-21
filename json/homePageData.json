@@ -1,7 +1,7 @@
 {
     "heroSection": {
         "subtitle": "Teqdimat Sayti",
-        "backgroundImg": "../img/heroBg.jpg",
+        "backgroundImg": "presentationCommerce/img/heroBg.jpg",
         "title": "Biz supper<br>ve munasib tedimat hazirlayiriq",
         "description": "Dream great dreams, make them a reality with us. Suspendisse varius odio sit amet mattis.",
         "action": true,
