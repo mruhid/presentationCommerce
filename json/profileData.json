@@ -2,14 +2,14 @@
     "profile": {
         "presentations": [
             {
-                "imageSrc": "https://raw.githubusercontent.com/mruhid/presentationCommerce/refs/heads/main/presentation/img/dd.webp",
+                "imageSrc": "dd.webp",
                 "altText": "Visit Cart",
-                "link": "https://raw.githubusercontent.com/mruhid/presentationCommerce/main/presentation/components/Mektub.pdf"
+                "link": "Mektub.pdf"
             },
             {
-                "imageSrc": "https://media.timeout.com/images/106181719/750/562/image.jpg",
+                "imageSrc": "dd.webp",
                 "altText": "Akademik yazi",
-                "link":"https://github.com/mruhid/presentationCommerce/raw/refs/heads/main/presentation/components/Ruhid_akademik_yaz%C4%B1(558).pptx"
+                "link":"Ruhid_akademik_yaz%C4%B1(558).pptx"
             }
         ]
     }
