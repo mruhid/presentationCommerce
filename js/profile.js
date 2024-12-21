@@ -140,13 +140,13 @@ async function updateProfile() {
     data.presentations.forEach((presentation) => {
       const presentationLink = document.createElement("a");
       presentationLink.classList.add("presentation");
-      const src1=`${basePath}/presentation/components/${presentation.link}`
+      const src1=`${basePath}/presentation/components/${presentation.link}/`
       presentationLink.href =src1;
       presentationLink.title = presentation.altText;
       presentationLink.target = "_blank";
 
       const img = document.createElement("img");
-      const src2=`${basePath}/presentation/components/${presentation.imageSrc}`
+      const src2=`${basePath}/presentation/img/${presentation.imageSrc}/`
       img.src = src2;
       img.alt = presentation.altText;
       presentationLink.appendChild(img);
