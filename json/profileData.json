@@ -2,7 +2,7 @@
     "profile": {
         "presentations": [
             {
-                "imageSrc": "/presentation/img/Visit kart.png",
+                "imageSrc": "https://github.com/mruhid/presentationCommerce/blob/main/presentation/img/Visit%20kart.png?raw=true",
                 "altText": "Visit Cart",
                 "link": "/presentation/components/Mektub.pdf"
             },
