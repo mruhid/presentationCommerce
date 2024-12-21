@@ -2,7 +2,7 @@
     "profile": {
         "presentations": [
             {
-                "imageSrc": "https://github.com/mruhid/presentationCommerce/blob/main/presentation/img/dd.webp",
+                "imageSrc": "https://raw.githubusercontent.com/mruhid/presentationCommerce/refs/heads/main/presentation/img/dd.webp",
                 "altText": "Visit Cart",
                 "link": "/presentation/components/Mektub.pdf"
             },
