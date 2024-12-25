@@ -1,0 +1,121 @@
+{
+    "heroSection": {
+        "subtitle": "Teqdimat Sayti",
+        "backgroundImg": "https://github.com/mruhid/presentationCommerce/blob/main/img/heroBg.jpg?raw=true",
+        "title": "Biz supper<br>ve munasib tedimat hazirlayiriq",
+        "description": "Dream great dreams, make them a reality with us. Suspendisse varius odio sit amet mattis.",
+        "action": true,
+        "buttonText": "Sifariş ver",
+        "buttonSrc": "./price.html",
+        "contactInfo": [
+            {
+                "type": "call",
+                "iconClass": "fas fa-phone",
+                "label": "Zəng et:",
+                "value": "Number",
+                "link": "tel:+11111112"
+            },
+            {
+                "type": "whatsapp",
+                "iconClass": "fab fa-whatsapp",
+                "iconStyle": "background-color: rgb(27, 146, 106); color: white;",
+                "label": "whatsapp:",
+                "value": "Online Chat",
+                "link": "https://wa.me/+1234567890"
+            }
+        ]
+    },
+    "operationsSection": {
+        "title": "Əmliyyatlar",
+        "description": "description",
+        "action": true,
+        "operations": [
+            {
+                "title": "Haqqımızda",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt neque mollitia fuga blanditiis? Voluptas, quasi modi!",
+                "iconClass": "fas fa-book",
+                "link": "./about.html",
+                "place": 2
+            },
+            {
+                "title": "Işlərimiz",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt neque mollitia fuga blanditiis? Voluptas, quasi modi!",
+                "iconClass": "fas fa-project-diagram",
+                "link": "./profile.html",
+                "place": 1
+            },
+            {
+                "title": "Sifariş ver",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt neque mollitia fuga blanditiis? Voluptas, quasi modi!",
+                "iconClass": "fas fa-money-bill-wave",
+                "link": "./price.html",
+                "place": 3
+            },
+            {
+                "title": "Əlaqə Vasitələri",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt neque mollitia fuga blanditiis? Voluptas, quasi modi!",
+                "iconClass": "fas fa-envelope",
+                "link": "./contact.html",
+                "place": 4
+            }
+        ]
+    },
+    "whyUsSection": {
+        "title": "Bizim təqdimatlarımız sizə nə vədd edir?",
+        "action": true,
+        "features": [
+            {
+                "title": "superrr",
+                "description": "men superem",
+                "image": "https://yusif.az/main/wp-content/uploads/2019/01/%D0%91%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-2.png"
+            },
+            {
+                "title": "Keyfiyyetli dizayn",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                "image": "https://yusif.az/main/wp-content/uploads/2019/01/%D0%91%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-2.png"
+            },
+            {
+                "title": " dizayn",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                "image": "https://yusif.az/main/wp-content/uploads/2019/01/%D0%91%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-2.png"
+            }
+        ]
+    },
+    "socialSection": {
+        "title": "Bizi Izleyin",
+        "action": true,
+        "links": [
+            {
+                "platform": "Instagram",
+                "iconClass": "fab fa-instagram",
+                "link": "https://www.instagram.com/",
+                "place": 1
+            },
+            {
+                "platform": "Facebook",
+                "iconClass": "fab fa-facebook",
+                "link": "https://www.facebook.com/",
+                "place": 0
+            },
+            {
+                "platform": "LinkedIn",
+                "iconClass": "fab fa-linkedin",
+                "link": "https://www.linkedin.com/",
+                "place": 2
+            },
+            {
+                "platform": "Twitter",
+                "iconClass": "fab fa-x",
+                "link": "https://x.com/",
+                "place": 3
+            }
+        ]
+    },
+    "goFormSection": {
+        "action": true,
+        "title": "Şifaris üçün form səhifəsinə daxil olun",
+        "buttonText": "Daxil olmaq ucun klikleyin",
+        "iconClass": "fas fa-arrow-right",
+        "buttonSrc": "./price.html"
+    }
+}

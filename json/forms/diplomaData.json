@@ -1,0 +1,189 @@
+{
+    "title": "Diplom İşi Qiymət Hesablama",
+    "fields": [
+        {
+            "type": "text",
+            "id": "studentName",
+            "label": "Tam Ad",
+            "placeholder": "Ad və soyadınızı daxil edin",
+            "options": null
+        },
+        {
+            "type": "tel",
+            "id": "contactNumber",
+            "label": "Əlaqə Nömrəsi",
+            "placeholder": "Telefon nömrənizi daxil edin",
+            "options": null
+        },
+        {
+            "type": "text",
+            "id": "topicName",
+            "label": "Mövzunun Adı",
+            "placeholder": "Mövzunun adını daxil edin",
+            "options": null
+        },
+        {
+            "type": "text",
+            "id": "uniName",
+            "label": "Universitet Adı",
+            "placeholder": "Universitet adını daxil edin",
+            "options": null
+        },
+        {
+            "type": "text",
+            "id": "others",
+            "label": "Digər İstəklər",
+            "placeholder": "Əlavə etmək istədiyiniz məqamları yaza bilərsiniz",
+            "options": null
+        },
+        {
+            "type": "select",
+            "id": "language",
+            "label": "Dil Seçin",
+            "options": [
+                {
+                    "value": "az",
+                    "text": "Azərbaycan"
+                },
+                {
+                    "value": "en",
+                    "text": "English"
+                },
+                {
+                    "value": "ru",
+                    "text": "Русский"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "timeframe",
+            "label": "Müddət",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Seçim edin --"
+                },
+                {
+                    "value": "Standart",
+                    "text": "Standart müddət"
+                },
+                {
+                    "value": "Təcili",
+                    "text": "Təcili xidmət"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "projectType",
+            "label": "Tədqiqatın Növü",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Seçim edin --"
+                },
+                {
+                    "value": "Teorik",
+                    "text": "Teorik diplom işi"
+                },
+                {
+                    "value": "Praktiki",
+                    "text": "Praktiki tədqiqat işi"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "scope",
+            "label": "İşin Həcmi",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Seçim edin --"
+                },
+                {
+                    "value": "Standart",
+                    "text": "Standart diplom işi (40-50 səhifə)"
+                },
+                {
+                    "value": "Genişləndirilmiş",
+                    "text": "Genişləndirilmiş iş (60+ səhifə)"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "design",
+            "label": "Dizayn və Təqdimat",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Seçim edin --"
+                },
+                {
+                    "value": "YalnızMətn",
+                    "text": "Diplom işinin mətni"
+                },
+                {
+                    "value": "Slaydlar",
+                    "text": "Diplom işi + slaydlar"
+                }
+            ],
+            "placeholder": null
+        },
+        {
+            "type": "select",
+            "id": "research",
+            "label": "Araşdırma Tələb Səviyyəsi",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Seçim edin --"
+                },
+                {
+                    "value": "Ümumi",
+                    "text": "Ədəbiyyat icmalı və ümumi məlumat"
+                },
+                {
+                    "value": "Dərin",
+                    "text": "Statistik analiz və xüsusi metodologiya"
+                }
+            ],
+            "placeholder": null
+        }
+    ],
+    "modalText": "Sifarişinizzz uğurla qəbul edildi!",
+    "wpNumber": "https://wa.me/+994516944256",
+    "price": {
+        "scope": {
+            "Standart": 3,
+            "Genişləndirilmiş": 6
+        },
+        "research": {
+            "Ümumi": 1,
+            "Dərin": 3
+        },
+        "projectType": {
+            "Teorik": 2,
+            "Praktiki": 4
+        },
+        "design": {
+            "YalnızMətn": 1,
+            "Slaydlar": 3
+        },
+        "timeframe": {
+            "Təcili": 5,
+            "Standart": 2
+        },
+        "language": {
+            "az": 1,
+            "en": 4,
+            "ru": 3
+        }
+    }
+}

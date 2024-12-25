@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,500&display=swap");
+
+* {
+  font-family: "Poppins";
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+:root {
+  /* Primary colors */
+  --color-primary: #ffd700; /* Indigo */
+  --color-text-light: #ffffff;
+  --color-text-dark: #000000;
+  --header-color: rgb(253, 253, 253, 0.6);
+  --ligth-Gray: #e4e0e1;
+  --accent-color: #00;
+  --box-border: 10px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  animation: fadeIn 1s ease-in-out;
+}
+/* pc and mobile menu */
+.pc-menu {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 40px;
+  font-size: 20px;
+  background: var(--header-color);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out, background-color 0.6s ease;
+}
+.pc-menu.scrolled {
+  transform: translateY(0);
+}
+.pc-menu.bg-change {
+  background-color: var(--color-primary);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header ul {
+  display: flex;
+  padding: 20px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 40px;
+}
+header ul li a {
+  color: var(--color-text-dark);
+  position: relative;
+  text-decoration: none; /* Remove default underline */
+  transition: color 0.3s ease; /* Optional smooth color transition */
+}
+
+header ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+header ul li a:hover {
+  color: var(--color-primary);
+}
+
+header ul li a:hover::after {
+  width: 100%;
+}
+
+/* mobile menu */
+.mobile-menu {
+  position: fixed;
+  display: none;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: white;
+
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.3); /* Top shadow */
+}
+.mobile-menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mobile-menu ul li {
+  font-size: 30px;
+  padding: 20px 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.mobile-menu ul li a {
+  color: #000;
+}
+.mobile-menu ul li.active a {
+  color: var(--color-primary);
+}
+.mobile-menu ul li.plus {
+  background-color: var(--ligth-Gray);
+  border-radius: 50%;
+  padding: 12px 23px;
+  font-size: 34px;
+}
+.mobile-menu ul li:active {
+  background-color: var(--color-primary);
+  border-radius: var(--box-border);
+  color: white;
+}
+.mobile-menu ul li.plus:active {
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.profilPicture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--color-text-dark);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.profilPicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profilPicture:hover {
+  transform: scale(1.1);
+  border: 1px solid var(--color-primary);
+}
+
+/* profile */
+main {
+  margin: 60px auto;
+  text-align: center;
+}
+.profile .ProfilPicture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--color-text-dark);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin: 0 auto;
+}
+.profile .ProfilPicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.name {
+  padding: 20px;
+}
+.name h2 {
+  font-size: 2rem;
+  background-color: var(--color-primary);
+  display: inline;
+  padding: 3px 10px;
+  text-align: center;
+  border-radius: var(--box-border);
+  color: var(--color-text-dark);
+  margin: 10px;
+  cursor: pointer;
+}
+.name p {
+  color: gray;
+  cursor: pointer;
+}
+
+.presentations {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 4px;
+}
+.presentations .presentation {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.presentations .presentation img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* footer side */
+footer {
+  background-color: var(--footer-color, black);
+  color: white;
+  text-align: center;
+  margin-top: 80px;
+}
+.newsletter {
+  display: flex;
+  padding: 20px 0;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--ligth-Gray);
+}
+
+footer .newsletter div {
+  padding: 30px;
+  text-align: center;
+}
+
+footer .footer-logo {
+  width: 180px;
+  border-radius: var(--box-border);
+  aspect-ratio: 2/1;
+  object-fit: cover;
+}
+
+.copyright .social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px auto;
+  padding: 20x;
+  font-size: 26px;
+}
+.copyright .social i {
+  color: white;
+}
+.copyright p {
+  padding-bottom: 20px;
+  font-size: 15px;
+}
+.copyright h4 {
+  padding-top: 40px;
+  font-size: 15px;
+  font-weight: 100;
+}
+.copyright p:hover {
+  color: #333;
+}
+
+/* responsive desig */
+@media (max-width: 768px) {
+  .pc-menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+  footer {
+    margin-bottom: 70px;
+  }
+  .presentations {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for tablets */
+    gap: 12px;
+  }
+
+  .presentations .presentation {
+    width: 320px; /* Smaller dimensions */
+    height: 320px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+  .name h2 {
+    font-size: 18px;
+  }
+  .presentations {
+    display: grid; /* Ensure grid layout is applied */
+    grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
+    gap: 4px; /* Space between grid items */
+  }
+
+  .presentations .presentation {
+    max-width: 200px; /* Maximum width for individual items */
+    width: 96%; /* Responsive width */
+    height: auto; /* Maintain height proportional to width */
+    aspect-ratio: 1 / 1; /* Keeps a square aspect ratio */
+    /* Ensure backward compatibility for older browsers */
+    -webkit-aspect-ratio: 1 / 1; /* Safari support */
+  }
+}

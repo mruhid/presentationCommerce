@@ -1,0 +1,16 @@
+{
+    "profile": {
+        "presentations": [
+            {
+                "imageSrc": "https://github.com/mruhid/presentationCommerce/blob/main/presentation/img/Visit%20kart.png?raw=true",
+                "altText": "Visit Cart",
+                "link": "Mektub.pdf"
+            },
+            {
+                "imageSrc": "https://media.timeout.com/images/106181719/750/562/image.jpg",
+                "altText": "Akademik yazi",
+                "link": "Ruhid_akademik_yazı(558).pptx"
+            }
+        ]
+    }
+}

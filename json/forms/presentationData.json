@@ -1,0 +1,126 @@
+{
+    "title": "Təqdimat qiyyməti hesablayıcı",
+    "fields": [
+        {
+            "type": "text",
+            "id": "studentName",
+            "label": "Tam Ad",
+            "placeholder": "Ad və soyadınızı daxil edin"
+        },
+        {
+            "type": "tel",
+            "id": "contactNumber",
+            "label": "Əlaqə Nömrəsi",
+            "placeholder": "Telefon nömrənizi daxil edin"
+        },
+        {
+            "type": "text",
+            "id": "uniName",
+            "label": "Universitet Adı",
+            "placeholder": "Universitet adını daxil edin"
+        },
+        {
+            "type": "text",
+            "id": "topicName",
+            "label": "Mövzunun Adı",
+            "placeholder": "Mövzunun adını daxil edin"
+        },
+        {
+            "type": "number",
+            "id": "slides",
+            "label": "Slide sayı",
+            "placeholder": "Sayı daxil edin",
+            "min": 1
+        },
+        {
+            "type": "text",
+            "id": "others",
+            "label": "Digər İstəklər",
+            "placeholder": "Əlavə etmək istədiyiniz məqamları yaza bilərsiniz"
+        },
+        {
+            "type": "select",
+            "id": "language",
+            "label": "Dil",
+            "options": [
+                {
+                    "value": "",
+                    "text": "--  Dil seçimi --"
+                },
+                {
+                    "value": "az",
+                    "text": "Azərbaycan"
+                },
+                {
+                    "value": "eng",
+                    "text": "Ingilis"
+                },
+                {
+                    "value": "rus",
+                    "text": "Rus"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "timeframe",
+            "label": "Müddət",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Seçim edin --"
+                },
+                {
+                    "value": "Standart",
+                    "text": "Standart müddət"
+                },
+                {
+                    "value": "Təcili",
+                    "text": "Təcili xidmət"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "quality",
+            "label": "Keyfiyyət",
+            "options": [
+                {
+                    "value": "",
+                    "text": "-- Keyfiyyət seçimi --"
+                },
+                {
+                    "value": "Zəif",
+                    "text": "Zəif"
+                },
+                {
+                    "value": "Orta",
+                    "text": "Orta"
+                },
+                {
+                    "value": "Güclü",
+                    "text": "Güclü"
+                }
+            ]
+        }
+    ],
+    "modalText": "Sifarişinizzz uğurla qəbul edildi!",
+    "wpNumber": "https://wa.me/+994516944256",
+    "price": {
+        "quality": {
+            "Zəif": 1,
+            "Orta": 2,
+            "Güclü": 3
+        },
+        "timeframe": {
+            "Təcili": 5,
+            "Standart": 2
+        },
+        "language": {
+            "az": 1,
+            "eng": 3,
+            "rus": 2
+        },
+        "slides": 0.5
+    }
+}

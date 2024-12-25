@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,500&display=swap");
+
+* {
+  font-family: "Poppins";
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+:root {
+  /* Primary colors */
+  --color-primary: #ffd700; /* Indigo */
+  --color-text-light: #ffffff;
+  --color-text-dark: #000000;
+  --header-color: rgb(253, 253, 253, 0.6);
+  --ligth-Gray: #e4e0e1;
+  --accent-color: #00;
+  --box-border: 10px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  animation: fadeIn 1s ease-in-out;
+}
+/* pc and mobile menu */
+.pc-menu {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 40px;
+  font-size: 20px;
+  background: var(--header-color);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out, background-color 0.6s ease;
+}
+.pc-menu.scrolled {
+  transform: translateY(0);
+}
+.pc-menu.bg-change {
+  background-color: var(--color-primary);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header ul {
+  display: flex;
+  padding: 20px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 40px;
+}
+header ul li a {
+  color: var(--color-text-dark);
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+header ul li a:hover {
+  color: var(--color-primary);
+}
+
+header ul li a:hover::after {
+  width: 100%;
+}
+
+/* mobile menu */
+.mobile-menu {
+  position: fixed;
+  display: none;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: white;
+
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.3); /* Top shadow */
+}
+.mobile-menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mobile-menu ul li {
+  font-size: 30px;
+  padding: 20px 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.mobile-menu ul li a {
+  color: #000;
+}
+.mobile-menu ul li.active a {
+  color: var(--color-primary);
+}
+.mobile-menu ul li.plus {
+  background-color: var(--ligth-Gray);
+  border-radius: 50%;
+  padding: 12px 23px;
+  font-size: 34px;
+}
+.mobile-menu ul li:active {
+  background-color: var(--color-primary);
+  border-radius: var(--box-border);
+  color: white;
+}
+.mobile-menu ul li.plus:active {
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.profilPicture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--color-text-dark);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.profilPicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profilPicture:hover {
+  transform: scale(1.1);
+  border: 1px solid var(--color-primary);
+}
+
+/* footer side */
+footer {
+  background-color: var(--footer-color, black);
+  color: white;
+  text-align: center;
+}
+.newsletter {
+  display: flex;
+  padding: 20px 0;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--ligth-Gray);
+}
+
+footer .newsletter div {
+  padding: 30px;
+  text-align: center;
+}
+
+footer .footer-logo {
+  width: 180px;
+  border-radius: var(--box-border);
+  aspect-ratio: 2/1;
+  object-fit: cover;
+}
+
+.copyright .social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px auto;
+  padding: 20x;
+  font-size: 26px;
+}
+.copyright .social i {
+  color: white;
+}
+.copyright p {
+  padding-bottom: 20px;
+  font-size: 15px;
+}
+.copyright h4 {
+  padding-top: 40px;
+  font-size: 15px;
+  font-weight: 100;
+}
+.copyright p:hover {
+  color: #333;
+}
+
+/* contact info */
+.contact-page {
+  margin: 10px auto;
+  margin-top: 50px;
+  text-align: center;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.contact-page:hover {
+  transform: translateY(-5px);
+}
+
+.contact-page h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contact-page p {
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 18px;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.social-icon i {
+  margin-right: 8px;
+}
+
+.social-icon {
+  background-color: #0088cc;
+}
+.telegram {
+  background-color: #0088cc;
+}
+.whatsapp {
+  background-color: #25d366;
+}
+.instagram {
+  background-color: #c13584;
+}
+.facebook {
+  background-color: #4267b2;
+}
+.email {
+  background-color: #333;
+}
+.linkedin {
+  background-color: #0077b5;
+}
+.social-icon:hover {
+  transform: translateY(-4px);
+  opacity: 0.9;
+}
+/* Go form */
+
+.go-form {
+  display: flex;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 0;
+  background-color: var(--color-primary);
+  flex-wrap: wrap;
+}
+
+.go-form h1 {
+  font-size: 30px;
+}
+.go-form div {
+  margin: 0 10px;
+}
+
+.go-form button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.go-form button a {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: white;
+  padding: 15px 20px;
+  background-color: #000;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.go-form button a:hover {
+  color: #555;
+}
+
+.go-form button a i {
+  margin-left: 10px;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+  .pc-menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+  footer {
+    margin-bottom: 70px;
+  }
+  .hero-section {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .content {
+    left: 0;
+  }
+
+  .button {
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .social-icon {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .button {
+    padding: 8px 16px;
+  }
+}

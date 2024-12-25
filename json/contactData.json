@@ -1,0 +1,46 @@
+{
+    "contactPage": {
+        "header": "Bizimlə Əlaqə",
+        "description": "Sosial sebeke hesablarimizdan bizleri izleye bilersiniz",
+        "action": true,
+        "socialLinks": [
+            {
+                "platform": "Telegram",
+                "url": "https://telegram.me/yourusername",
+                "iconClass": "fab fa-telegram-plane"
+            },
+            {
+                "platform": "WhatsApp",
+                "url": "https://wa.me/yourphonenumber",
+                "iconClass": "fab fa-whatsapp"
+            },
+            {
+                "platform": "Instagram",
+                "url": "https://instagram.com/yourusername",
+                "iconClass": "fab fa-instagram"
+            },
+            {
+                "platform": "Facebook",
+                "url": "https://facebook.com/yourusername",
+                "iconClass": "fab fa-facebook-f"
+            },
+            {
+                "platform": "Email",
+                "url": "mailto:your-email@example.com",
+                "iconClass": "fas fa-envelope"
+            },
+            {
+                "platform": "LinkedIn",
+                "url": "https://linkedin.com/in/yourusername",
+                "iconClass": "fab fa-linkedin-in"
+            }
+        ]
+    },
+    "goForm": {
+        "title": "Şifaris üçün form səhifəsinə daxil olun",
+        "action": true,
+        "buttonText": "Daxil olmaq ucun  klikleyin",
+        "buttonSrc": "./price.html",
+        "iconClass": "fas fa-arrow-right"
+    }
+}
