@@ -18,7 +18,7 @@ async function fetchCoverLetterData(sectionName) {
     const checkBackendUrl = await fetch(`${basePath}/src/src.json`);
     const backendConfig = await checkBackendUrl.json();
 
-    const url = backendConfig.backend_url + "/forms/coverletter";
+    const url = backendConfig.backend_url + "/forms/coverLetter";
 
     const fetchUrl = backendConfig.action
       ? url
