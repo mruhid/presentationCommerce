@@ -18,7 +18,7 @@ async function fetchCoverLetterData(sectionName) {
     const checkBackendUrl = await fetch(`${basePath}/src/src.json`);
     const backendConfig = await checkBackendUrl.json();
 
-    const url = backendConfig.backend_url + "/coverletter";
+    const url = backendConfig.backend_url + "/forms/coverletter";
 
     const fetchUrl = backendConfig.action
       ? url
@@ -242,6 +242,43 @@ const getWhatsAppNumber = async () => {
   const data = await fetchCoverLetterData("wpNumber");
   return data;
 };
+async function sendFormData(data) {
+  try {
+    const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
+    if (!configResponse.ok) {
+      throw new Error(
+        `Failed to fetch config file. Status: ${configResponse.status}`
+      );
+    }
+
+    const config = await configResponse.json();
+
+    // Determine the data source (backend or fallback JSON)
+    const fetchUrl = config.action && `${config.backend_url}/books`; // Adjust path as needed
+
+    if (!config.action) {
+      console.log("backend server or forms data not aviable yet");
+      return;
+    }
+
+    const response = await fetch(fetchUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to save book data");
+    }
+
+    const result = await response.json();
+    console.log("Data saved successfully:", result);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
 
 const calculateBtn = document.getElementById("calculate");
 const resultDiv = document.getElementById("result");
@@ -291,6 +328,23 @@ bookNowBtn.addEventListener("click", function () {
 
   setTimeout(async () => {
     const whatsappNumber = await getWhatsAppNumber();
+    const data = {
+      type: "coverletter",
+      data: {
+        fullName: document.getElementById("fullName").value,
+        phoneNumber: document.getElementById("phoneNumber").value,
+        language: document.getElementById("language").value,
+        others: document.getElementById("others").value,
+        letterSubject: document.getElementById("letterSubject").value,
+        letterPurpose: document.getElementById("letterPurpose").value,
+        customizationLevel: document.getElementById("customizationLevel").value,
+        deliveryTime: document.getElementById("deliveryTime").value,
+      },
+      price: parseFloat(document.getElementById("result").textContent.slice(8)), // Convert price to Decimal
+    };
+
+    await sendFormData(data);
+
     const message = encodeURIComponent(`
         Salam, Mən ${document.getElementById("fullName").value}.
         Cover Letter xidmətindən istifadə etmək istəyirəm:

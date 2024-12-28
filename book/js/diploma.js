@@ -1,7 +1,7 @@
 // PC-menu color and scrool movement
 const header = document.querySelector(".pc-menu");
 let lastScrollY = window.scrollY;
-const basePath = "/presentationCommerce"
+const basePath = "/presentationCommerce";
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 10) {
@@ -18,7 +18,7 @@ async function fetchDiplomaData(sectionName) {
     const checkBackendUrl = await fetch(`${basePath}/src/src.json`);
     const backendConfig = await checkBackendUrl.json();
 
-    const url = backendConfig.backend_url + "/diploma";
+    const url = backendConfig.backend_url + "/forms/diploma";
 
     const fetchUrl = backendConfig.action
       ? url
@@ -245,6 +245,43 @@ const getWhatsAppNumber = async () => {
   const data = await fetchDiplomaData("wpNumber");
   return data;
 };
+async function sendFormData(data) {
+  try {
+    const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
+    if (!configResponse.ok) {
+      throw new Error(
+        `Failed to fetch config file. Status: ${configResponse.status}`
+      );
+    }
+
+    const config = await configResponse.json();
+
+    // Determine the data source (backend or fallback JSON)
+    const fetchUrl = config.action && `${config.backend_url}/books`; // Adjust path as needed
+
+    if (!config.action) {
+      console.log("backend server or forms data not aviable yet");
+      return;
+    }
+
+    const response = await fetch(fetchUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to save book data");
+    }
+
+    const result = await response.json();
+    console.log("Data saved successfully:", result);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
 
 const calculateBtn = document.getElementById("calculate");
 const resultDiv = document.getElementById("result");
@@ -329,7 +366,27 @@ bookNowBtn.addEventListener("click", function () {
 
   // Redirect to WhatsApp after a delay
   setTimeout(async () => {
-    const whatsappNumber = await fetchDiplomaData("wpNumber"); // Replace with your WhatsApp number
+    const whatsappNumber = await fetchDiplomaData("wpNumber");
+    const data = {
+      type: "diploma",
+      data: {
+        fullName: document.getElementById("studentName").value,
+        phoneNumber: document.getElementById("contactNumber").value,
+        topicName: document.getElementById("topicName").value,
+        uniName: document.getElementById("uniName").value,
+        scope: document.getElementById("scope").value,
+        research: document.getElementById("research").value,
+        projectType: document.getElementById("projectType").value,
+        design: document.getElementById("design").value,
+        timeframe: document.getElementById("timeframe").value,
+        language: document.getElementById("language").value,
+        others: document.getElementById("others").value,
+      },
+      price: parseFloat(document.getElementById("result").textContent.slice(8)), // Convert price to Decimal
+    };
+
+    await sendFormData(data);
+    // Replace with your WhatsApp number
     const message = encodeURIComponent(`
             Salam, Mən ${document.getElementById("studentName").value}.
             Diplom işi sifariş etmək istəyirəm:

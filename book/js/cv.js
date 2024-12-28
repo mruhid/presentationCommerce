@@ -18,7 +18,7 @@ async function fetchCVData(sectionName) {
     const checkBackendUrl = await fetch(`${basePath}/src/src.json`);
     const backendConfig = await checkBackendUrl.json();
 
-    const url = backendConfig.backend_url + "/cv";
+    const url = backendConfig.backend_url + "/forms/cv";
 
     const fetchUrl = backendConfig.action ? url : `${basePath}/json/forms/cvFormData.json`;
 
@@ -237,6 +237,43 @@ const getWhatsAppNumber = async () => {
   const data = await fetchCVData("wpNumber");
   return data;
 };
+async function sendFormData(data) {
+  try {
+    const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
+    if (!configResponse.ok) {
+      throw new Error(
+        `Failed to fetch config file. Status: ${configResponse.status}`
+      );
+    }
+
+    const config = await configResponse.json();
+
+    // Determine the data source (backend or fallback JSON)
+    const fetchUrl = config.action && `${config.backend_url}/books`; // Adjust path as needed
+
+    if (!config.action) {
+      console.log("backend server or forms data not aviable yet");
+      return;
+    }
+
+    const response = await fetch(fetchUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to save book data");
+    }
+
+    const result = await response.json();
+    console.log("Data saved successfully:", result);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
 const calculateBtn = document.getElementById("calculate");
 const resultDiv = document.getElementById("result");
 const bookNowBtn = document.getElementById("bookNow");
@@ -286,7 +323,23 @@ bookNowBtn.addEventListener("click", function () {
   successModal.style.display = "block";
 
   setTimeout(async () => {
-    const whatsappNumber = await getWhatsAppNumber(); // Replace with your WhatsApp number
+    const whatsappNumber = await getWhatsAppNumber(); 
+    const data = {
+      type: "cv",
+      data: {
+        fullName: document.getElementById("fullName").value,
+        phoneNumber: document.getElementById("phoneNumber").value,
+        language: document.getElementById("language").value,
+        others: document.getElementById("others").value,
+        cvType: document.getElementById("cvType").value,
+        serviceLevel: document.getElementById("serviceLevel").value,
+        experienceLevel: document.getElementById("experienceLevel").value,
+        duration: document.getElementById("duration").value,
+      },
+      price: parseFloat(document.getElementById("result").textContent.slice(8)), // Convert price to Decimal
+    };
+
+    await sendFormData(data);
     const message = encodeURIComponent(`
               Salam, Mən ${document.getElementById("fullName").value}.
               CV xidmətindən istifadə etmək istəyirəm:

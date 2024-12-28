@@ -1,19 +1,16 @@
-
 // PC-menu color and scrool movement
-const header = document.querySelector('.pc-menu');
+const header = document.querySelector(".pc-menu");
 let lastScrollY = window.scrollY;
-const basePath = "/presentationCommerce"
+const basePath = "/presentationCommerce";
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
 
-   
-    
-    lastScrollY = window.scrollY;
+  lastScrollY = window.scrollY;
 });
 
 async function fetchWordData(sectionName) {
@@ -21,7 +18,7 @@ async function fetchWordData(sectionName) {
     const checkBackendUrl = await fetch(`${basePath}/src/src.json`);
     const backendConfig = await checkBackendUrl.json();
 
-    const url = backendConfig.backend_url + "/word";
+    const url = backendConfig.backend_url + "/forms/word";
 
     const fetchUrl = backendConfig.action
       ? url
@@ -132,9 +129,7 @@ async function updateHeader() {
   profilePicture.src = data.companyLogo;
   profilePicture.alt = data.companyName;
   document.title = `${
-    data.companyName
-      ? data.companyName + " | Book Word"
-      : "Book Word"
+    data.companyName ? data.companyName + " | Book Word" : "Book Word"
   } `;
   // Change the favicon
   const favicon = document.getElementById("favicon");
@@ -246,75 +241,139 @@ const getWhatsAppNumber = async () => {
   const data = await fetchWordData("wpNumber");
   return data;
 };
-// Price Configuration
 
-  
-  // Get DOM Elements
-  const calculateBtn = document.getElementById("calculate");
-  const resultDiv = document.getElementById("result");
-  const bookNowBtn = document.getElementById("bookNow");
-  
-  // Calculate Button Click Event
-  calculateBtn.addEventListener("click",async function () {
-    const studentName = document.getElementById("studentName").value.trim();
-    const topicName = document.getElementById("topicName").value.trim();
-    const contactNumber = document.getElementById("contactNumber").value.trim();
-    const quality = document.getElementById("quality").value;
-    const language = document.getElementById("language").value;
-    const slides = parseInt(document.getElementById("slides").value);
+async function sendFormData(data) {
+  try {
+    const configResponse = await fetch(`${basePath}/src/src.json`); // Adjust path as needed
+    if (!configResponse.ok) {
+      throw new Error(
+        `Failed to fetch config file. Status: ${configResponse.status}`
+      );
+    }
+
+    const config = await configResponse.json();
+
+    // Determine the data source (backend or fallback JSON)
+    const fetchUrl = config.action && `${config.backend_url}/books`; // Adjust path as needed
+
+    if (!config.action) {
+      console.log("backend server or forms data not aviable yet");
+      return;
+    }
+
+    const response = await fetch(fetchUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to save book data");
+    }
+
+    const result = await response.json();
+    console.log("Data saved successfully:", result);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// Get DOM Elements
+const calculateBtn = document.getElementById("calculate");
+const resultDiv = document.getElementById("result");
+const bookNowBtn = document.getElementById("bookNow");
+
+// Calculate Button Click Event
+calculateBtn.addEventListener("click", async function () {
+  const studentName = document.getElementById("studentName").value.trim();
+  const topicName = document.getElementById("topicName").value.trim();
+  const contactNumber = document.getElementById("contactNumber").value.trim();
+  const quality = document.getElementById("quality").value;
+  const language = document.getElementById("language").value;
+  const slides = parseInt(document.getElementById("slides").value);
   const xidmetMuddeti = document.getElementById("deliveryTime").value;
-  const price =await priceData();
+  const price = await priceData();
 
-  
-    // Validation to ensure all fields are filled
-        
-    if (!xidmetMuddeti || !studentName || !topicName || !contactNumber || !quality || !language || isNaN(slides) || slides <= 0 ) {
-      resultDiv.textContent = "Zəhmət olmasa bütün məlumatları düzgün daxil edin.";
-      resultDiv.style.color = "red";
-      bookNowBtn.classList.add("hidden");
-      return;
-    }
-  
-  
-    // Check if all selections are valid keys in the price object
-    if (!(quality in price.quality) || !(language in price.language) || !(xidmetMuddeti in price.xidmetMuddeti)) {
-      resultDiv.textContent = "Xəta! Seçimlər düzgün deyil.";
-      resultDiv.style.color = "red";
-      bookNowBtn.classList.add("hidden");
-      return;
-    }
-  
-    // Calculate Total Price
-    const totalPrice =
-      price.quality[quality] +
-      price.language[language] +
+  // Validation to ensure all fields are filled
+
+  if (
+    !xidmetMuddeti ||
+    !studentName ||
+    !topicName ||
+    !contactNumber ||
+    !quality ||
+    !language ||
+    isNaN(slides) ||
+    slides <= 0
+  ) {
+    resultDiv.textContent =
+      "Zəhmət olmasa bütün məlumatları düzgün daxil edin.";
+    resultDiv.style.color = "red";
+    bookNowBtn.classList.add("hidden");
+    return;
+  }
+
+  // Check if all selections are valid keys in the price object
+  if (
+    !(quality in price.quality) ||
+    !(language in price.language) ||
+    !(xidmetMuddeti in price.xidmetMuddeti)
+  ) {
+    resultDiv.textContent = "Xəta! Seçimlər düzgün deyil.";
+    resultDiv.style.color = "red";
+    bookNowBtn.classList.add("hidden");
+    return;
+  }
+
+  // Calculate Total Price
+  const totalPrice =
+    price.quality[quality] +
+    price.language[language] +
     price.xidmetMuddeti[xidmetMuddeti] +
-      slides * price.pages;
-  
-    if (isNaN(totalPrice)) {
-      resultDiv.textContent = "Qiymət hesablama zamanı xəta baş verdi.";
-      resultDiv.style.color = "red";
-      return;
-    }
-  
-    resultDiv.textContent = `Qiymət: ${totalPrice.toFixed(2)} AZN`;
-    resultDiv.style.color = "green";
-  
-    // Show "Book Now" button
-    bookNowBtn.classList.remove("hidden");
-  });
-   
-  // Book Now Button Click Event
-  bookNowBtn.addEventListener("click", function () {
-    const successModal = document.getElementById("successModal");
-    const successMessage = document.getElementById("successMessage");
-  
-    successModal.style.display = "block";
-  
-    // Redirect to WhatsApp after a delay
-    setTimeout(async() => {
-      const whatsappNumber = await getWhatsAppNumber(); // Replace with your WhatsApp number
-      const message = encodeURIComponent(`
+    slides * price.pages;
+
+  if (isNaN(totalPrice)) {
+    resultDiv.textContent = "Qiymət hesablama zamanı xəta baş verdi.";
+    resultDiv.style.color = "red";
+    return;
+  }
+
+  resultDiv.textContent = `Qiymət: ${totalPrice.toFixed(2)} AZN`;
+  resultDiv.style.color = "green";
+
+  // Show "Book Now" button
+  bookNowBtn.classList.remove("hidden");
+});
+
+// Book Now Button Click Event
+bookNowBtn.addEventListener("click", function () {
+  const successModal = document.getElementById("successModal");
+  const successMessage = document.getElementById("successMessage");
+
+  successModal.style.display = "block";
+
+  // Redirect to WhatsApp after a delay
+  setTimeout(async () => {
+    const whatsappNumber = await getWhatsAppNumber();
+    const data = {
+      type: "word",
+      data: {
+        fullName: document.getElementById("studentName").value,
+        topicName: document.getElementById("topicName").value,
+        quality: document.getElementById("quality").value,
+        deliveryTime: document.getElementById("deliveryTime").value,
+        pages: document.getElementById("slides").value,
+        phoneNumber: document.getElementById("contactNumber").value,
+        language: document.getElementById("language").value,
+        others: document.getElementById("others").value,
+      },
+      price: parseFloat(document.getElementById("result").textContent.slice(8)), // Convert price to Decimal
+    };
+
+    await sendFormData(data);
+    const message = encodeURIComponent(`
         Salam, Mən ${document.getElementById("studentName").value}.
         Sərbəs iş(word) sifariş etmək istəyirəm:
         - Mövzu: ${document.getElementById("topicName").value}
@@ -322,16 +381,17 @@ const getWhatsAppNumber = async () => {
         - Çatdırılma Müddəti: ${document.getElementById("deliveryTime").value}
         - Dil: ${document.getElementById("language").value}
         - Word faylı səhifə sayı: ${document.getElementById("slides").value}
-        - Digər İstəklər: ${document.getElementById("others").value||"Yazılmayıb"}
+        - Digər İstəklər: ${
+          document.getElementById("others").value || "Yazılmayıb"
+        }
         - Qiymət: ${document.getElementById("result").textContent.slice(8)}
         - Telefon Nömrəm: ${document.getElementById("contactNumber").value}
       `);
-      window.location.href = `${whatsappNumber}?text=${message}`;
-    }, 2000); // 2-second delay
-  });
-  
-  // Close Modal Event
-  document.getElementById("closeModal").addEventListener("click", function () {
-    document.getElementById("successModal").style.display = "none";
-  });
-  
+    window.location.href = `${whatsappNumber}?text=${message}`;
+  }, 2000); // 2-second delay
+});
+
+// Close Modal Event
+document.getElementById("closeModal").addEventListener("click", function () {
+  document.getElementById("successModal").style.display = "none";
+});

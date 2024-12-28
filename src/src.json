@@ -1,4 +1,4 @@
 {
-    "backend_url": "http://localhost:7000",
-    "action": false
+    "backend_url": "https://mruhid-presentationcommerce-api.onrender.com/",
+    "action": true
 }
